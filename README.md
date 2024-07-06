@@ -1,24 +1,24 @@
-# @romainprignon/utils
+# @romainprignon/std
 
-> Some useful utils
+> Thing that may be in a Standard library
 
 
 ## Setup
 
 ```sh
-npm install --save @romainprignon/utils
+npm install --save @romainprignon/std
 ```
 
 
 ## API
 
-Way to import utils
+Way to import std
 ```js
-import * as utils from '@romainprignon/utils'
-import {oop, fp} from '@romainprignon/utils'
-import * as oop from '@romainprignon/utils/oop'
-import {fs} from '@romainprignon/utils/oop'
-import {readFile} from '@romainprignon/utils/fp/fs'
+import * as std from '@romainprignon/std'
+import {oop, fp} from '@romainprignon/std'
+import * as oop from '@romainprignon/std/oop'
+import {fs} from '@romainprignon/std/oop'
+import {readFile} from '@romainprignon/std/fp/fs'
 ```
 
 See [dist/index.d.ts](dist/index.d.ts)

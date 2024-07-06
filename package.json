@@ -1,12 +1,12 @@
 {
-  "name": "@romainprignon/utils",
+  "name": "@romainprignon/std",
   "version": "4.0.1",
   "description": "some useful tools",
   "author": "Romain Prignon <pro.rprignon@gmail.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/romainPrignon/utils.git"
+    "url": "git+https://github.com/romainPrignon/std.git"
   },
   "engines": {
     "node": "^16",
