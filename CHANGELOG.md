@@ -1,13 +1,5 @@
 # Changelog
 
-<a name="0.0.3"></a>
-## 0.0.3 (2020-02-24)
-
-### Fixed
-
-- 🐛 type Error correctly [[409d31c](https://github.com/romainPrignon/utils/commit/409d31ced5d7a07ccf211e3f041b6fa1a95cb641)]
-
-
 <a name="0.0.2"></a>
 ## 0.0.2 (2020-02-23)
 
