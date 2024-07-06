@@ -1,4 +1,4 @@
-import { Maybe } from '../../../type'
+import { Maybe } from '../../type'
 
 import { head } from '.'
 

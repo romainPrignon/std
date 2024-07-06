@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es2020", // node 14
+    "target": "es2022", // node 16
     "module": "commonjs",
     "moduleResolution": "node",
     "outDir": "dist",
@@ -21,7 +21,4 @@
       "dom"
     ],
   },
-  "include": [
-    "type/"
-  ]
 }

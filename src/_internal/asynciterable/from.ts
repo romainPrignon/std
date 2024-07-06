@@ -1,4 +1,4 @@
-import { UnknownArgs, Fun, UnknownReturns } from '../../../type'
+import { UnknownArgs, Fun, UnknownReturns } from '../../type'
 import * as ix from 'ix/asynciterable'
 
 

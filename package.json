@@ -16,7 +16,6 @@
   "main": "index.js",
   "types": "index.d.ts",
   "assets": [
-    "type",
     "CHANGELOG.md",
     "LICENSE.md",
     "package-lock.json",

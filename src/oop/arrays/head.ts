@@ -1,4 +1,4 @@
-import { Maybe } from '../../../type'
+import { Maybe } from '../../type'
 
 
 const head = <R>(arr: Array<R>): Maybe<R> => {

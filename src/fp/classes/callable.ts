@@ -1,5 +1,5 @@
 import { Class } from 'type-fest'
-import { UnknownArgs, Fun } from '../../../type'
+import { UnknownArgs, Fun } from '../../type'
 
 /**
  * return callable function from a Class

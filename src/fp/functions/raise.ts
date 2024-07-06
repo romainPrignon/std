@@ -1,4 +1,4 @@
-import { Exception } from '../../../type'
+import { Exception } from '../../type'
 
 
 const raise = (err: Error): Exception => {

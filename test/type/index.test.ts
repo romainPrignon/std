@@ -1,13 +1,12 @@
 import { expectType } from 'tsd'
 
 // test
-import { Fun, Maybe, Mutable, AsyncFun, Immutable, Args, UnknownArgs, Returns, UnknownReturns } from './index.d'
-import * as Utils from './index.d'
+import { Fun, Maybe, Mutable, AsyncFun, Immutable, Args, UnknownArgs, Returns, UnknownReturns } from '../../src/type'
+import * as Utils from '../../src/type'
 
 const id = <T>(): T => ({}) as T
 
 describe('index', () => {
-
   describe('Utils', () => {
     it('should export Args type', () => {
       expectType<Array<string>>(id<Utils.Args<string>>())
@@ -25,7 +24,7 @@ describe('index', () => {
       expectType<number|undefined>(id<Utils.Maybe<number>>())
     })
     it('should export Mutable type', () => {
-      const foo = {bar: 'baz'} as const
+      const foo = { bar: 'baz' } as const
 
       type ImmutableFoo = typeof foo
       type MutableFoo = {bar: 'baz'}
@@ -33,7 +32,7 @@ describe('index', () => {
       expectType<MutableFoo>(id<Utils.Mutable<ImmutableFoo>>())
     })
     it('should export Immutable type', () => {
-      const mutableFoo = {bar: 'baz'}
+      const mutableFoo = { bar: 'baz' }
       type ImmutableFoo = {readonly bar: string}
 
       expectType<ImmutableFoo>(id<Utils.Immutable<typeof mutableFoo>>())
@@ -77,7 +76,7 @@ describe('index', () => {
 
   describe('Mutable', () => {
     it('should export Mutable type', () => {
-      const foo = {bar: 'baz'} as const
+      const foo = { bar: 'baz' } as const
 
       type ImmutableFoo = typeof foo
       type MutableFoo = {bar: 'baz'}
@@ -88,7 +87,7 @@ describe('index', () => {
 
   describe('Immutable', () => {
     it('should export Immutable type', () => {
-      const mutableFoo = {bar: 'baz'}
+      const mutableFoo = { bar: 'baz' }
       type ImmutableFoo = {readonly bar: string}
 
       expectType<ImmutableFoo>(id<Immutable<typeof mutableFoo>>())

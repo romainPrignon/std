@@ -1,5 +1,5 @@
 import * as ix from 'ix/iterable'
-import { Fun, UnknownArgs, UnknownReturns } from '../../../type'
+import { Fun, UnknownArgs, UnknownReturns } from '../../type'
 
 type IterableInput<T> = Iterable<T> | Iterator<T>
 
