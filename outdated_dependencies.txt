@@ -1,0 +1,22 @@
+Package                            Current    Wanted    Latest  Location                                       Depended by
+@sindresorhus/is                     4.0.1     4.6.0     7.0.1  node_modules/@sindresorhus/is                  app
+@types/jest                        29.5.12   29.5.14   29.5.14  node_modules/@types/jest                       app
+@types/lodash                     4.14.169   4.17.17   4.17.17  node_modules/@types/lodash                     app
+@types/node                       14.14.45  14.18.63  22.15.21  node_modules/@types/node                       app
+@typescript-eslint/eslint-plugin    4.28.1    4.33.0    8.32.1  node_modules/@typescript-eslint/eslint-plugin  app
+@typescript-eslint/parser           4.28.1    4.33.0    8.32.1  node_modules/@typescript-eslint/parser         app
+eslint                              7.29.0    7.32.0    9.27.0  node_modules/eslint                            app
+eslint-config-standard              16.0.3    16.0.3    17.1.0  node_modules/eslint-config-standard            app
+eslint-plugin-functional             3.2.1     3.7.2     9.0.1  node_modules/eslint-plugin-functional          app
+eslint-plugin-import                2.23.4    2.31.0    2.31.0  node_modules/eslint-plugin-import              app
+eslint-plugin-promise                5.1.0     5.2.0     7.2.1  node_modules/eslint-plugin-promise             app
+gitmoji-changelog                    2.1.0     2.3.0     2.3.0  node_modules/gitmoji-changelog                 app
+gitmoji-cli                          3.2.1     3.4.2     9.7.0  node_modules/gitmoji-cli                       app
+husky                                4.2.1     4.3.8     9.1.7  node_modules/husky                             app
+ix                                   4.4.0     4.6.1     7.0.0  node_modules/ix                                app
+pinst                                2.0.0     2.1.6     3.0.0  node_modules/pinst                             app
+ts-jest                             29.1.5    29.3.4    29.3.4  node_modules/ts-jest                           app
+tsd                                 0.11.0    0.11.0    0.32.0  node_modules/tsd                               app
+type-fest                            1.2.0     1.4.0    4.41.0  node_modules/type-fest                         app
+typescript                           4.9.5     4.9.5     5.8.3  node_modules/typescript                        app
+zod                                  3.2.0   3.25.20   3.25.20  node_modules/zod                               app
