@@ -16,6 +16,7 @@ describe('struct/promise.ts', () => {
       const zodError = {
         code: zod.ZodIssueCode.custom,
         message: 'Expect Promise',
+        fatal: true,
         path: []
       }
 
@@ -30,6 +31,7 @@ describe('struct/promise.ts', () => {
       const zodError = {
         code: zod.ZodIssueCode.custom,
         message: 'Expect Promise',
+        fatal: true,
         path: []
       }
 
