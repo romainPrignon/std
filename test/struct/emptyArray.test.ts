@@ -15,6 +15,7 @@ describe('emptyArray.ts', () => {
       const zodError = {
         code: zod.ZodIssueCode.custom,
         message: 'Expect Empty Array',
+        fatal: true,
         path: []
       }
 
@@ -28,6 +29,7 @@ describe('emptyArray.ts', () => {
       const zodError = {
         code: zod.ZodIssueCode.custom,
         message: 'Expect Empty Array',
+        fatal: true,
         path: []
       }
 

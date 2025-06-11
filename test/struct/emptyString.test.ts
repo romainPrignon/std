@@ -15,6 +15,7 @@ describe('emptyString.ts', () => {
       const zodError = {
         code: zod.ZodIssueCode.custom,
         message: 'Expect Empty String',
+        fatal: true,
         path: []
       }
 
@@ -28,6 +29,7 @@ describe('emptyString.ts', () => {
       const zodError = {
         code: zod.ZodIssueCode.custom,
         message: 'Expect Empty String',
+        fatal: true,
         path: []
       }
 
