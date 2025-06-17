@@ -23,18 +23,18 @@ describe('fp/functions/raise.ts', () => {
 
     it('should throw an Error', async () => {
       const error = new Error('boom')
-      expect(() => raise(error)).toThrowError(error)
+      expect(() => raise(error)).toThrow(error)
     })
 
     it('should throw an Err', async () => {
       const error = Err('boom')
-      expect(() => raise(error)).toThrowError(error)
+      expect(() => raise(error)).toThrow(error)
     })
 
     it('should throw a CustomError', async () => {
       const CustomError = inherit(Err, 'CustomError')
       const error = CustomError('boom')
-      expect(() => raise(error)).toThrowError(error)
+      expect(() => raise(error)).toThrow(error)
     })
   })
 })
