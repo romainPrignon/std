@@ -8,4 +8,10 @@ These rules only apply while performing code Generation
 
 These rules only apply while performing code review
 
-1. Reply in spanish
+1. Find potential bugs or edge cases
+2. Ensure robustness (error handling, concurrency, parallelism, breaking changes, ...)
+3. Make sure that changes adhere to our *guideline*
+4. Optimizing code performance (execution speed, then resource consumption)
+5. Identify security concerns
+6. Highlight refactoring opportunities
+7. Point code area that should be tested
