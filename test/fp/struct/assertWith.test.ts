@@ -28,7 +28,7 @@ describe('oop/struct/assertWith.ts', () => {
 
       const numberAssertion = assertWith(numberSchema)
 
-      expect(() => numberAssertion(input)).toThrowError()
+      expect(() => numberAssertion(input)).toThrow()
     })
 
     it('should return true if input is a number', () => {
