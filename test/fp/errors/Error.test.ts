@@ -1,17 +1,16 @@
 import { expectType } from 'tsd'
 
 // test
-import { Err, inherit } from '../../../src/fp/errors/Error'
+import { Exception, derive } from '../../../src/fp/errors/Error'
 
 
 describe('fp/errors/index.ts', () => {
-  describe('Err()', () => {
+  describe('Exception()', () => {
     const message = 'message'
-    const err = new globalThis.Error()
-    const code = 'code'
+    const err = new Error()
 
-    it('should be typed as Err', () => {
-      expectType<Error>(Err(message, { cause: err, code }))
+    it('should be typed as Error', () => {
+      expectType<Error>(Exception(message, { cause: err }))
     })
 
     it('it should create an instance of Err', () => {
@@ -19,29 +18,28 @@ describe('fp/errors/index.ts', () => {
       const errorMessage = 'Test error message'
 
       // Act
-      const error = Err(errorMessage)
+      const error = Exception(errorMessage)
 
       // Assert
-      expect(error).toBeInstanceOf(Err)
+      expect(error).toBeInstanceOf(Exception)
       expect(error.message).toBe(errorMessage)
-      expect(error.code).toBe('Err')
+      expect(error.code).toBe('Exception')
       expect(error.cause).toBeUndefined()
       expect(error.context).toBeUndefined()
     })
 
-    it('it should create an instance of Err with code, cause, context', () => {
+    it('it should create an instance of Exception with  cause, context', () => {
       // Arrange
       const errorMessage = 'Test error message'
-      const code = 'code'
       const context = {}
 
       // Act
-      const error = Err(errorMessage, { code, cause: err, context })
+      const error = Exception(errorMessage, { cause: err, context })
 
       // Assert
-      expect(error).toBeInstanceOf(Err)
+      expect(error).toBeInstanceOf(Exception)
       expect(error.message).toBe(errorMessage)
-      expect(error.code).toBe(code)
+      expect(error.code).toBe('Exception')
       expect(error.cause).toBe(err)
       expect(error.context).toBe(context)
     })
@@ -51,44 +49,44 @@ describe('fp/errors/index.ts', () => {
       const errorMessage = 'Test error message'
 
       // Act
-      const error = Err(errorMessage)
+      const error = Exception(errorMessage)
 
       // Assert
       expect(error.stack).toBeDefined()
     })
 
-    it('it should create a new error class that inherits from Err', () => {
+    it('it should create a new exception class that inherits from Exception', () => {
       // Arrange
       const errorMessage = 'Test error message'
-      const errorCode = 'CustomError'
-      const CustomError = inherit(Err, errorCode)
+      const errorName = 'CustomError'
+      const CustomError = derive(Exception, errorName)
 
       // Act
       const error = CustomError(errorMessage)
 
       // Assert
-      expect(error.name).toBe(errorCode)
+      expect(error.name).toBe(errorName)
       expect(error.message).toBe(errorMessage)
-      expect(error.code).toBe(errorCode)
+      expect(error.code).toBe(errorName)
       expect(error.cause).toBeUndefined()
       expect(error.context).toBeUndefined()
       expect(error.stack).toBeDefined()
     })
 
-    it('it should create a recursive error class that inherits from Err', () => {
+    it('it should create a recursive exception class that inherits from Exception', () => {
       // Arrange
       const errorMessage = 'Test error message'
-      const errorCode1 = 'CustomError1'
-      const errorCode2 = 'CustomError2'
-      const CustomError = inherit(inherit(Err, errorCode1), errorCode2)
+      const errorName1 = 'CustomError1'
+      const errorName2 = 'CustomError2'
+      const CustomError = derive(derive(Exception, errorName1), errorName2)
 
       // Act
       const error = CustomError(errorMessage)
 
       // Assert
-      expect(error.name).toBe(errorCode2)
+      expect(error.name).toBe(errorName2)
       expect(error.message).toBe(errorMessage)
-      expect(error.code).toBe(errorCode2)
+      expect(error.code).toBe(errorName2)
       expect(error.stack).toBeDefined()
     })
   })

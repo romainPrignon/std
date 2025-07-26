@@ -1,38 +1,35 @@
-type ErrData = {
-  code?: string
-  cause?: Err | globalThis.Error
+type ExceptionOptions = {
+  cause?: Error
   context?: Record<string, unknown>
 }
 
-class Err extends Error {
+class Exception extends Error {
   code?: string
-  cause?: Err | globalThis.Error
+  cause?: Error
   context?: Record<string, unknown>
 
-  constructor (message: string, data?: ErrData) {
-    super(message)
-    this.code = 'Err'
+  constructor (message: string, options?: ExceptionOptions) {
+    super(message, options)
+    this.code = 'Exception'
     this.message = message
-    this.code = data?.code ? data?.code : 'Err'
-    this.cause = data?.cause
-    this.context = data?.context
+    this.cause = options?.cause
+    this.context = options?.context
 
     Error.captureStackTrace(this, this.constructor)
   }
 
-  static inherit (name: string): typeof Err {
-    const errorClass = class extends this {
-      constructor (message: string, data?: ErrData) {
-        super(message, data)
-        /* istanbul ignore next */
-        this.code = data?.code ? data?.code : name
+  static derive (name: string): typeof Exception {
+    const exceptionClass = class extends this {
+      constructor (message: string, options?: ExceptionOptions) {
+        super(message, options)
+        this.code = name
       }
     }
 
-    Object.defineProperty(errorClass, 'name', { value: name }) // eslint-disable-line
+    Object.defineProperty(exceptionClass, 'name', { value: name }) // eslint-disable-line
 
-    return errorClass
+    return exceptionClass
   }
 }
 
-export { Err }
+export { Exception }

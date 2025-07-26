@@ -1,5 +1,5 @@
 import { expectType } from 'tsd'
-import { Err } from '../../../src/fp/errors/Error'
+import { Exception } from '../../../src/fp/errors/Error'
 
 // test
 import { mayAsync } from '../../../src/fp/functions/mayAsync'
@@ -8,14 +8,14 @@ import { mayAsync } from '../../../src/fp/functions/mayAsync'
 describe('fp/functions/mayAsync.ts', () => {
   describe('mayAsync()', () => {
     it('should be typed as R1 | Err', () => {
-      expectType<Promise<number | typeof Err>>(mayAsync(async () => 1))
+      expectType<Promise<number | typeof Exception>>(mayAsync(async () => 1))
     })
     it('should be typed as R1 | R2', () => {
       expectType<Promise<number | string>>(mayAsync(async () => 1, () => 'a'))
     })
 
     it('should return an Err if failure callback not provided', async () => {
-      const err = Err('boom', { code: 'BOOM' })
+      const err = Exception('boom')
 
       const output = await mayAsync(async () => { throw err })
 
@@ -29,7 +29,7 @@ describe('fp/functions/mayAsync.ts', () => {
     })
 
     it('should return fallback in failure case', async () => {
-      const err = Err('boom', { code: 'BOOM' })
+      const err = Exception('boom')
 
       const output = await mayAsync(
         async () => { throw err },
