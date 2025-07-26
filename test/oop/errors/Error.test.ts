@@ -1,46 +1,44 @@
 import { expectType } from 'tsd'
 
 // test
-import { Err } from '../../../src/oop/errors'
+import { Exception } from '../../../src/oop/errors'
 
 
 describe('oop/error/index.ts', () => {
-  describe('new Err', () => {
+  describe('new Exception', () => {
     const message = 'message'
-    const err = new globalThis.Error()
+    const err = new Error()
 
-    it('should be typed as Error', () => {
-      expectType<Error>(new Err(message, { cause: err }))
+    it('should be typed as Exception', () => {
+      expectType<Exception>(new Exception(message, { cause: err }))
     })
 
-    it('it should create an instance of Err', () => {
+    it('it should create an instance of Exception', () => {
       // Arrange
       const errorMessage = 'Test error message'
 
       // Act
-      const error = new Err(errorMessage)
+      const error = new Exception(errorMessage)
 
       // Assert
-      expect(error).toBeInstanceOf(Err)
+      expect(error).toBeInstanceOf(Exception)
       expect(error.message).toBe(errorMessage)
-      expect(error.code).toBe('Err')
+      expect(error.code).toBe('Exception')
       expect(error.cause).toBeUndefined()
       expect(error.context).toBeUndefined()
     })
 
-    it('it should create an instance of Err with code, cause, context', () => {
+    it('it should create an instance of Exception with cause, context', () => {
       // Arrange
       const errorMessage = 'Test error message'
-      const code = 'code'
       const context = {}
 
       // Act
-      const error = new Err(errorMessage, { code, cause: err, context })
+      const error = new Exception(errorMessage, { cause: err, context })
 
       // Assert
-      expect(error).toBeInstanceOf(Err)
+      expect(error).toBeInstanceOf(Exception)
       expect(error.message).toBe(errorMessage)
-      expect(error.code).toBe(code)
       expect(error.cause).toBe(err)
       expect(error.context).toBe(context)
     })
@@ -50,45 +48,45 @@ describe('oop/error/index.ts', () => {
       const errorMessage = 'Test error message'
 
       // Act
-      const error = new Err(errorMessage)
+      const error = new Exception(errorMessage)
 
       // Assert
       expect(error.stack).toBeDefined()
     })
 
-    it('it should create a new error class that inherits from Err', () => {
+    it('it should create a new exception class that inherits from Exception', () => {
       // Arrange
       const errorMessage = 'Test error message'
-      const errorCode = 'CustomError'
-      const CustomError = Err.inherit(errorCode)
+      const errorName = 'CustomError'
+      const CustomError = Exception.derive(errorName)
 
       // Act
       const error = new CustomError(errorMessage)
 
       // Assert
       expect(error).toBeInstanceOf(CustomError)
-      expect(error).toBeInstanceOf(Err)
+      expect(error).toBeInstanceOf(Exception)
       expect(error.message).toBe(errorMessage)
-      expect(error.code).toBe(errorCode)
+      expect(error.code).toBe(errorName)
       expect(error.cause).toBeUndefined()
       expect(error.context).toBeUndefined()
     })
 
-    it('it should create a recursive error class that inherits from Err', () => {
+    it('it should create a recursive exception class that inherits from Exception', () => {
       // Arrange
       const errorMessage = 'Test error message'
-      const errorCode1 = 'CustomError1'
-      const errorCode2 = 'CustomError2'
-      const CustomError = Err.inherit(errorCode1).inherit(errorCode2)
+      const errorName1 = 'CustomError1'
+      const errorName2 = 'CustomError2'
+      const CustomError = Exception.derive(errorName1).derive(errorName2)
 
       // Act
       const error = new CustomError(errorMessage)
 
       // Assert
       expect(error).toBeInstanceOf(CustomError)
-      expect(error).toBeInstanceOf(Err)
+      expect(error).toBeInstanceOf(Exception)
       expect(error.message).toBe(errorMessage)
-      expect(error.code).toBe(errorCode2)
+      expect(error.code).toBe(errorName2)
       expect(error.cause).toBeUndefined()
       expect(error.context).toBeUndefined()
     })

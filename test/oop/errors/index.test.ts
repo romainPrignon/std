@@ -1,5 +1,5 @@
 // test
-import { Err } from '../../../src/oop/errors'
+import { Exception } from '../../../src/oop/errors'
 import * as errors from '../../../src/oop/errors'
 
 
@@ -8,10 +8,10 @@ describe('errors', () => {
     expect(Object.entries(errors).length).toEqual(1)
 
     expect(errors).toBeDefined()
-    expect(errors.Err).toBeDefined()
+    expect(errors.Exception).toBeDefined()
   })
 
   it('should export all namespace', () => {
-    expect(Err).toBeDefined()
+    expect(Exception).toBeDefined()
   })
 })

@@ -1,5 +1,5 @@
 import { expectType } from 'tsd'
-import { Err } from '../../../src/fp/errors/Error'
+import { Exception } from '../../../src/fp/errors/Error'
 
 // test
 import { may } from '../../../src/fp/functions/may'
@@ -15,7 +15,7 @@ describe('fp/functions/may.ts', () => {
     })
 
     it('should return an Err if failure callback not provided', () => {
-      const err = Err('boom', { code: 'BOOM' })
+      const err = Exception('boom')
 
       expect(
         may(() => { throw err })
@@ -29,7 +29,7 @@ describe('fp/functions/may.ts', () => {
     })
 
     it('should return fallback in failure case', () => {
-      const err = Err('boom', { code: 'BOOM' })
+      const err = Exception('boom')
 
       expect(
         may(

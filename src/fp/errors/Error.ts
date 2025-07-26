@@ -1,22 +1,20 @@
-import { Err as _Err } from '../../_internal/error/Error'
+import { Exception as _Exception } from '../../_internal/error/Error'
 import { callable } from '../classes/callable'
 
 
-const Err = callable(_Err)
+const Exception = callable(_Exception)
 
-const inherit = (err: typeof Err, name: string) => (...args: ConstructorParameters<typeof _Err>) => {
+const derive = (err: typeof Exception, name: string) => (...args: ConstructorParameters<typeof _Exception>) => {
   const _err = err(...args)
-  const [, data] = args
 
   _err.name = name // eslint-disable-line
-  /* istanbul ignore next */
-  _err.code = data?.code ? data?.code : name // eslint-disable-line
+  _err.code = name // eslint-disable-line
 
   return _err
 }
 
 
 export {
-  Err,
-  inherit
+  Exception,
+  derive
 }
