@@ -9,8 +9,8 @@
     "url": "git+https://github.com/romainPrignon/std.git"
   },
   "engines": {
-    "node": "^16",
-    "npm": "^8"
+    "node": "^22",
+    "npm": "^10"
   },
   "source": "dist",
   "main": "index.js",
@@ -57,16 +57,11 @@
     "@types/jest": "^30.0.0",
     "@types/lodash": "^4.17.17",
     "@types/node": "^14.18.63",
-    "@typescript-eslint/eslint-plugin": "^4.33.0",
-    "@typescript-eslint/parser": "^4.33.0",
-    "eslint": "^7.32.0",
-    "eslint-config-standard": "^16.0.3",
-    "eslint-plugin-functional": "^3.7.2",
-    "eslint-plugin-import": "^2.31.0",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^5.2.0",
-    "gitmoji-changelog": "2",
-    "gitmoji-cli": "3",
+    "@typescript-eslint/eslint-plugin": "^8",
+    "@typescript-eslint/parser": "^8",
+    "eslint": "^8",
+    "gitmoji-changelog": "^2.3.0",
+    "gitmoji-cli": "^9.7.0",
     "husky": "4",
     "jest": "^30.0.0",
     "pinst": "2",
