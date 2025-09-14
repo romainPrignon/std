@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es2022", // node 18
+    "target": "es2023", // node 22
     "module": "commonjs",
     "moduleResolution": "node",
     "outDir": "dist",
@@ -17,7 +17,7 @@
     "noUnusedParameters": false,
     "useUnknownInCatchVariables": false,
     "lib": [
-      "es2022",
+      "es2023",
       "dom"
     ],
   },
