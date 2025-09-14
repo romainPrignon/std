@@ -2,12 +2,11 @@
   "root": true,
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "ecmaVersion": 2021,
+    "ecmaVersion": 2022,
     "project": "./tsconfig.eslint.json"
   },
   "plugins": [
-    "@typescript-eslint",
-    "functional"
+    "@typescript-eslint"
   ],
   "env": {
     "es6": true,
@@ -15,9 +14,6 @@
     "jest": true
   },
   "extends": [
-    "standard",
-    "plugin:functional/external-recommended",
-    "plugin:functional/no-mutations"
   ],
   "rules": {
     "no-multiple-empty-lines": "off",
@@ -32,16 +28,6 @@
         "caughtErrorsIgnorePattern": "^_"
       }
     ],
-    "functional/immutable-data": [
-      "error",
-      {
-        "ignorePattern": [
-          "this."
-        ]
-      }
-    ],
-    "functional/no-let": "off",
-    "functional/prefer-readonly-type": "off",
     // project specific
     "no-new-wrappers": "off"
   }

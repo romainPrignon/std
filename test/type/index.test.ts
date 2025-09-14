@@ -24,18 +24,18 @@ describe('index', () => {
       expectType<number|undefined>(id<Utils.Maybe<number>>())
     })
     it('should export Mutable type', () => {
-      const foo = { bar: 'baz' } as const
+      const _foo = { bar: 'baz' } as const
 
-      type ImmutableFoo = typeof foo
+      type ImmutableFoo = typeof _foo
       type MutableFoo = {bar: 'baz'}
 
       expectType<MutableFoo>(id<Utils.Mutable<ImmutableFoo>>())
     })
     it('should export Immutable type', () => {
-      const mutableFoo = { bar: 'baz' }
+      const _mutableFoo = { bar: 'baz' }
       type ImmutableFoo = {readonly bar: string}
 
-      expectType<ImmutableFoo>(id<Utils.Immutable<typeof mutableFoo>>())
+      expectType<ImmutableFoo>(id<Utils.Immutable<typeof _mutableFoo>>())
     })
     it('should export Returns type', () => {
       expectType<string>(id<Utils.Returns<string>>())
@@ -76,9 +76,9 @@ describe('index', () => {
 
   describe('Mutable', () => {
     it('should export Mutable type', () => {
-      const foo = { bar: 'baz' } as const
+      const _foo = { bar: 'baz' } as const
 
-      type ImmutableFoo = typeof foo
+      type ImmutableFoo = typeof _foo
       type MutableFoo = {bar: 'baz'}
 
       expectType<MutableFoo>(id<Mutable<ImmutableFoo>>())
@@ -87,10 +87,10 @@ describe('index', () => {
 
   describe('Immutable', () => {
     it('should export Immutable type', () => {
-      const mutableFoo = { bar: 'baz' }
+      const _mutableFoo = { bar: 'baz' }
       type ImmutableFoo = {readonly bar: string}
 
-      expectType<ImmutableFoo>(id<Immutable<typeof mutableFoo>>())
+      expectType<ImmutableFoo>(id<Immutable<typeof _mutableFoo>>())
     })
   })
 
