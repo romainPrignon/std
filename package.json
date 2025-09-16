@@ -28,8 +28,8 @@
   "scripts": {
     "postinstall": "gitmoji --init",
     "build": "tsc -p src/",
-    "lint": "eslint --cache --ext js,ts src/ test/",
-    "fmt": "eslint --fix --ext js,ts src/ test/",
+    "lint": "eslint --cache src/ test/",
+    "fmt": "eslint --fix src/ test/",
     "test": "jest",
     "test:debug": "npm run test --detectOpenHandles --forceExit --runInBand --no-cache",
     "test:cov": "npm run test -- --coverage",
@@ -54,20 +54,23 @@
     "zod": "^3.25.62"
   },
   "devDependencies": {
+    "@eslint/js": "^9.35.0",
     "@types/jest": "^30.0.0",
     "@types/lodash": "^4.17.17",
     "@types/node": "^14.18.63",
-    "@typescript-eslint/eslint-plugin": "^8",
-    "@typescript-eslint/parser": "^8",
-    "eslint": "^8",
+    "eslint": "^9.35.0",
+    "eslint-plugin-n": "^17.23.0",
+    "eslint-plugin-promise": "^7.2.1",
     "gitmoji-changelog": "^2.3.0",
     "gitmoji-cli": "^9.7.0",
+    "globals": "^16.4.0",
     "husky": "4",
     "jest": "^30.0.0",
     "pinst": "2",
     "ts-jest": "^29.4.0",
     "tsd": "^0.32",
-    "typescript": "^5.9.2"
+    "typescript": "^5.9.2",
+    "typescript-eslint": "^8.44.0"
   },
   "husky": {
     "hooks": {
