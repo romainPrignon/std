@@ -9,16 +9,16 @@ describe('fp/functions/raise.ts', () => {
   describe('raise()', () => {
     it('should be typed correctly', () => {
       const rootError = new Error()
-      expectType<() => never>(() => raise(rootError)) // eslint-disable-line
+      expectType<() => never>(() => raise(rootError))  
     })
 
     it('should be typed correctly for Err', () => {
-      expectType<() => never>(() => raise(Err('boom'))) // eslint-disable-line
+      expectType<() => never>(() => raise(Err('boom')))  
     })
 
     it('should be typed correctly for CustomError', () => {
       const CustomError = inherit(Err, 'CustomError')
-      expectType<() => never>(() => raise(CustomError('boom'))) // eslint-disable-line
+      expectType<() => never>(() => raise(CustomError('boom')))  
     })
 
     it('should throw an Error', async () => {

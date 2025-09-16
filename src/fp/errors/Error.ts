@@ -8,9 +8,9 @@ const inherit = (err: typeof Err, name: string) => (...args: ConstructorParamete
   const _err = err(...args)
   const [, data] = args
 
-  _err.name = name // eslint-disable-line
+  _err.name = name  
   /* istanbul ignore next */
-  _err.code = data?.code ? data?.code : name // eslint-disable-line
+  _err.code = data?.code ? data?.code : name  
 
   return _err
 }

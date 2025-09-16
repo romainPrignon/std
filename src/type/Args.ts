@@ -1,4 +1,4 @@
-type Args<A extends unknown> = Array<A>
+type Args<A> = Array<A>
 type UnknownArgs = Args<unknown>
 
 export {

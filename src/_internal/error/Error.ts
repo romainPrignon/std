@@ -29,7 +29,7 @@ class Err extends Error {
       }
     }
 
-    Object.defineProperty(errorClass, 'name', { value: name }) // eslint-disable-line
+    Object.defineProperty(errorClass, 'name', { value: name })  
 
     return errorClass
   }
