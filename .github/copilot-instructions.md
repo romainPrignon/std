@@ -8,6 +8,6 @@ These rules only apply while performing code Generation
 
 ## Code Review
 
-These rules only apply while performing code review
+These rules apply when reviewing code:
 
 - Do NOT write a Pull Request Overview
