@@ -9,8 +9,8 @@
     "url": "git+https://github.com/romainPrignon/std.git"
   },
   "engines": {
-    "node": "^22",
-    "npm": "^10"
+    "node": ">=20",
+    "pnpm": ">=10"
   },
   "source": "dist",
   "main": "index.js",
@@ -27,18 +27,19 @@
   },
   "scripts": {
     "postinstall": "gitmoji --init",
+    "prepare": "husky",
     "build": "tsc -p src/",
     "lint": "eslint --cache src/ test/",
     "fmt": "eslint --fix src/ test/",
     "test": "jest",
-    "test:debug": "npm run test --detectOpenHandles --forceExit --runInBand --no-cache",
-    "test:cov": "npm run test -- --coverage",
-    "test:watch": "npm run test -- --watch",
+    "test:debug": "pnpm run test --detectOpenHandles --forceExit --runInBand --no-cache",
+    "test:cov": "pnpm run test --coverage",
+    "test:watch": "pnpm run test --watch",
     "changelog": "gitmoji-changelog",
-    "version": "npm run changelog && git add CHANGELOG.md",
-    "version:patch": "npm version --no-commit-hooks patch -m '🔖 Release v%s'",
-    "version:minor": "npm version --no-commit-hooks minor -m '🔖 Release v%s'",
-    "version:major": "npm version --no-commit-hooks major -m '🔖 Release v%s'",
+    "version": "pnpm run changelog && git add CHANGELOG.md",
+    "version:patch": "pnpm version --no-commit-hooks patch -m '🔖 Release v%s'",
+    "version:minor": "pnpm version --no-commit-hooks minor -m '🔖 Release v%s'",
+    "version:major": "pnpm version --no-commit-hooks major -m '🔖 Release v%s'",
     "postversion": "git push --follow-tags",
     "bundle": "./src/script/bundle.js bundle/",
     "deploy": "./src/script/deploy.js",
@@ -57,24 +58,19 @@
     "@eslint/js": "^9.35.0",
     "@types/jest": "^30.0.0",
     "@types/lodash": "^4.17.17",
-    "@types/node": "^14.18.63",
+    "@types/node": "^22",
     "eslint": "^9.35.0",
     "eslint-plugin-n": "^17.23.0",
     "eslint-plugin-promise": "^7.2.1",
     "gitmoji-changelog": "^2.3.0",
     "gitmoji-cli": "^9.7.0",
     "globals": "^16.4.0",
-    "husky": "4",
+    "husky": "^9.1.7",
     "jest": "^30.0.0",
     "pinst": "2",
     "ts-jest": "^29.4.0",
     "tsd": "^0.32",
     "typescript": "^5.9.2",
     "typescript-eslint": "^8.44.0"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run lint && npm run build && npm run test:cov"
-    }
   }
 }

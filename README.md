@@ -48,7 +48,7 @@ import { may } from '../functions' // good
 Example: Releasing a minor version using semver
 
 ```sh
-npm run ci:publish:minor -- otp=***
+pnpm run ci:publish:minor -- otp=***
 ```
 
 

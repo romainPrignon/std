@@ -20,10 +20,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
       - uses: actions/setup-node@v4
         with:
           registry-url: 'https://registry.npmjs.org'
           node-version: 22
+          cache: pnpm
 
       - name: configure git
         run: |
@@ -31,12 +39,12 @@ jobs:
           git config --global user.email 'pro.rprignon@gmail.com'
 
       - name: install
-        run: npm ci
+        run: pnpm install
 
       - name: version
-        run: npm run version:${{ github.event.inputs.version }}
+        run: pnpm run version:${{ github.event.inputs.version }}
 
       - name: deploy
-        run: npm run deploy -- --otp ${{ github.event.inputs.otp }}
+        run: pnpm run deploy -- --otp ${{ github.event.inputs.otp }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
