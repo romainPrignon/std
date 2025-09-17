@@ -11,18 +11,26 @@ jobs:
         node: [20, 22, 24]
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
       - uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node }}
+          cache: pnpm
 
       - name: install
-        run: npm ci
+        run: pnpm install
 
       - name: lint
-        run: npm run lint
+        run: pnpm run lint
 
       - name: build
-        run: npm run build
+        run: pnpm run build
 
       - name: test with coverage
-        run: npm run test:cov
+        run: pnpm run test:cov

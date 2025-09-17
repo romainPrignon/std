@@ -5,7 +5,7 @@ const shell = require('child_process').execSync
 const [_, otpVal] = process.argv.slice(2)
 
 shell('pinst --disable')
-shell('npm run build')
-shell('npm run bundle')
-shell(`npm publish --provenance --access public --otp=${otpVal} bundle/`)
+shell('pnpm run build')
+shell('pnpm run bundle')
+shell(`pnpm publish --provenance --access public --otp=${otpVal} bundle/`)
 shell('pinst --enable')
