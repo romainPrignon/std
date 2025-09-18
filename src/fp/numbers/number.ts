@@ -1,6 +1,7 @@
+import { CurriedFunction2 } from 'lodash'
 import l from 'lodash/fp'
 
-const isMultipleOf = l.curry((divisor: number, val: number): boolean =>
+const isMultipleOf: CurriedFunction2<number, number, boolean> = l.curry((divisor: number, val: number): boolean =>
   val % divisor === 0
 )
 

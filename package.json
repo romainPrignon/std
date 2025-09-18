@@ -28,7 +28,8 @@
   "scripts": {
     "postinstall": "gitmoji --init",
     "prepare": "husky",
-    "build": "tsc -p src/",
+    "check": "tsgo",
+    "build": "tsc",
     "lint": "oxlint src/ test/ && eslint -c oxlint.config.js --cache src/ test/",
     "fmt": "oxlint --fix src/ test/ && eslint -c oxlint.config.js --fix src/ test/",
     "test": "jest",
@@ -59,6 +60,7 @@
     "@types/jest": "^30.0.0",
     "@types/lodash": "^4.17.17",
     "@types/node": "^22",
+    "@typescript/native-preview": "7.0.0-dev.20250918.1",
     "eslint": "^9.35.0",
     "eslint-plugin-n": "^17.23.0",
     "eslint-plugin-oxlint": "^1.16.0",
