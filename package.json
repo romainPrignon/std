@@ -28,6 +28,7 @@
   "scripts": {
     "postinstall": "gitmoji --init",
     "prepare": "husky",
+    "dev": "concurrently -c auto 'npm:check -- --watch --preserveWatchOutput' 'npm:test -- --watch'",
     "check": "tsgo --noEmit",
     "build": "rm -rf dist/ && tsc -p tsconfig.build.json",
     "lint": "oxlint src/ test/ && eslint -c oxlint.config.js --cache src/ test/",
@@ -61,6 +62,7 @@
     "@types/lodash": "^4.17.17",
     "@types/node": "^22",
     "@typescript/native-preview": "7.0.0-dev.20250918.1",
+    "concurrently": "^9.2.1",
     "eslint": "^9.35.0",
     "eslint-plugin-n": "^17.23.0",
     "eslint-plugin-oxlint": "^1.16.0",
