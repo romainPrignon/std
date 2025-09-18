@@ -1,4 +1,4 @@
-import { Mutable } from '../../type'
+import type { Mutable } from '../../type'
 
 
 const mut = <T>(data: T): Mutable<T> => data

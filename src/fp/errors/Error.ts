@@ -1,5 +1,5 @@
 import { Err as _Err, ErrData } from '../../_internal/error/Error'
-import { Fun } from '../../type/Fun'
+import type { Fun } from '../../type/Fun'
 import { callable } from '../classes/callable'
 
 
