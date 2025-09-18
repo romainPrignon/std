@@ -1,6 +1,6 @@
 import { Class } from 'type-fest'
 
-import l from 'lodash'
+import l, { CurriedFunction2 } from 'lodash'
 
 
 /**
@@ -10,7 +10,7 @@ import l from 'lodash'
  * const instanceOfA = instanceOf(A)
  * if (instanceOfA(new A())) // true
  */
-const instanceOf = l.curry<Class<unknown>, unknown, boolean>((Class: Class<unknown>, value: unknown): boolean =>
+const instanceOf: CurriedFunction2<Class<unknown>, unknown, boolean> = l.curry((Class: Class<unknown>, value: unknown): boolean =>
   value instanceof Class
 )
 

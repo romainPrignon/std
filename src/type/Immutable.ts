@@ -3,6 +3,6 @@ type Immutable<T> = {
 }
 
 
-export {
+export type {
   Immutable
 }

@@ -1,4 +1,4 @@
-type ErrData = {
+export type ErrData = {
   code?: string
   cause?: Err | globalThis.Error
   context?: Record<string, unknown>
@@ -29,7 +29,7 @@ class Err extends Error {
       }
     }
 
-    Object.defineProperty(errorClass, 'name', { value: name })  
+    Object.defineProperty(errorClass, 'name', { value: name })
 
     return errorClass
   }

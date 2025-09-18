@@ -28,8 +28,8 @@
   "scripts": {
     "postinstall": "gitmoji --init",
     "prepare": "husky",
-    "check": "tsgo",
-    "build": "tsc",
+    "check": "tsgo --noEmit",
+    "build": "rm -rf dist/ && tsc -p tsconfig.build.json",
     "lint": "oxlint src/ test/ && eslint -c oxlint.config.js --cache src/ test/",
     "fmt": "oxlint --fix src/ test/ && eslint -c oxlint.config.js --fix src/ test/",
     "test": "jest",

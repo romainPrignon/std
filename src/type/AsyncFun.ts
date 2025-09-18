@@ -5,6 +5,6 @@ import { UnknownReturns } from './Returns'
 
 type AsyncFun<A extends UnknownArgs, R extends UnknownReturns> = Asyncify<Fun<A, R>>
 
-export {
+export type {
   AsyncFun
 }
