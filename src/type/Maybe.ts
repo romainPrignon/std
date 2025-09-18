@@ -1,5 +1,5 @@
 type Maybe<T> = T | undefined
 
-export {
+export type {
   Maybe
 }

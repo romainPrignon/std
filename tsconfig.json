@@ -1,25 +1,27 @@
 {
   "compilerOptions": {
-    "target": "es2023", // node 22
-    "module": "commonjs",
-    "moduleResolution": "node",
-    "outDir": "dist",
-    "incremental": true,
-    "allowJs": true,
-    "declaration": true,
-    "sourceMap": true,
-    "removeComments": false,
+    "target": "ES2023", // node 22
+    "module": "nodenext",
+    "moduleResolution": "NodeNext",
+    "moduleDetection": "force",
+    "outDir": "./dist",
     "esModuleInterop": true,
+    "isolatedModules": true,
+    // "verbatimModuleSyntax": true,
+    "resolveJsonModule": false, // perf killer
+    "declaration": true,
+    "isolatedDeclarations": true, // force public functions/methods to be fully typed
+    "sourceMap": true,
     "skipLibCheck": true,
     "strict": true,
+    "noUncheckedIndexedAccess": true,
     "noImplicitReturns": true,
-    "noUnusedLocals": false,
-    "noUnusedParameters": false,
     "useUnknownInCatchVariables": false,
+    "noErrorTruncation": true,
     "lib": [
-      "es2023",
-      "dom"
-    ],
+      "DOM", // iterator and web assembly and Headers are in here
+      "ES2023"
+    ]
   },
   "include": [
     "src/",
