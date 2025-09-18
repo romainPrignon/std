@@ -16,6 +16,7 @@
     "strict": true,
     "noUncheckedIndexedAccess": true,
     "noImplicitReturns": true,
+    "noUncheckedSideEffectImports": true,
     "useUnknownInCatchVariables": false,
     "noErrorTruncation": true,
     "lib": [
