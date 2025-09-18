@@ -21,4 +21,8 @@
       "dom"
     ],
   },
+  "include": [
+    "src/",
+    "test/",
+  ]
 }
