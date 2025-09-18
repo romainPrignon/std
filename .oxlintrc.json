@@ -1,0 +1,25 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "ignorePatterns": [
+    "src/script/"
+  ],
+  "env": {
+    "builtin": true,
+    "commonjs": true,
+    "es2023": true,
+    "jest": true,
+    "node": true,
+    "shared-node-browser": true
+  },
+  "categories": {
+    "correctness": "error",
+    "perf": "error"
+  },
+  "plugins": ["eslint", "oxc", "promise", "typescript"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:oxc/recommended",
+    "plugin:promise/recommended",
+    "plugin:@typescript-eslint/recommended"
+  ]
+}
