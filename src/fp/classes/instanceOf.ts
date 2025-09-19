@@ -10,7 +10,7 @@ import l, { CurriedFunction2 } from 'lodash'
  * const instanceOfA = instanceOf(A)
  * if (instanceOfA(new A())) // true
  */
-const instanceOf: CurriedFunction2<Class<unknown>, unknown, boolean> = l.curry((Class: Class<unknown>, value: unknown): boolean =>
+const instanceOf: CurriedFunction2<Class, unknown, boolean> = l.curry((Class: Class, value: unknown): boolean =>
   value instanceof Class
 )
 
