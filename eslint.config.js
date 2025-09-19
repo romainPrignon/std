@@ -7,7 +7,7 @@ import globals from 'globals'
 import tseslint from 'typescript-eslint'
 
 export default defineConfig([
-  ...tseslint.configs.recommended, // enable typescript syntax
+  ...tseslint.configs.recommendedTypeChecked, // enable typescript syntax
   {
     files: ['**/*.{js,ts}']
   },
@@ -19,10 +19,19 @@ export default defineConfig([
   },
   {
     languageOptions: {
-      ecmaVersion: 2023,
+      ecmaVersion: 2023, // node 22
       sourceType: 'commonjs'
     }
   },
+  // if you want to enable type aware rules
+  // {
+  //   languageOptions: {
+  //     parserOptions: {
+  //       projectService: true,
+  //       tsconfigRootDir: import.meta.dirname,
+  //     },
+  //   },
+  // },
   {
     languageOptions: {
       globals: {
@@ -39,7 +48,7 @@ export default defineConfig([
       ...tseslint.configs.recommended.rules,
       // ...vitest.configs.recommended.rules,
       ...promise.configs.recommended.rules,
-      ...n.configs.recommended.rules,
+      ...n.configs['flat/recommended-module'].rules,
       // errors rules
       // 'vitest/no-focused-tests': 'error',
       '@typescript-eslint/no-unused-vars': [
