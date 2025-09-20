@@ -9,6 +9,7 @@ jobs:
     strategy:
       matrix:
         node: [20, 22, 24]
+        module_type: ['cjs', 'esm']
     steps:
       - uses: actions/checkout@v4
         with:
@@ -34,3 +35,22 @@ jobs:
 
       - name: test with coverage
         run: pnpm run test:cov
+
+      - name: bundle
+        run: pnpm run bundle --withDeps
+
+      - name: check bundle coverage
+        run: pnpm run bundle:cov
+
+      # integration test
+      - name: integration install
+        working-directory: test-int/${{ matrix.node }}-${{ matrix.module_type }}
+        run: npm ci
+
+      - name: integration build
+        working-directory: test-int/${{ matrix.node }}-${{ matrix.module_type }}
+        run: npm run build
+
+      - name: integration test
+        working-directory: test-int/${{ matrix.node }}-${{ matrix.module_type }}
+        run: npm run test

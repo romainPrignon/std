@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "ES2023", // node 22
+    "module": "commonjs",
+    "moduleDetection": "force",
+    "outDir": "./dist",
+    "esModuleInterop": true, // output commonjs only
+    "isolatedModules": true,
+    // "verbatimModuleSyntax": true, // esm only
+    "declaration": true,
+    "isolatedDeclarations": true, // force public functions/methods to be fully typed
+    "skipLibCheck": true,
+    "strict": true,
+    "noUncheckedSideEffectImports": true,
+    "lib": [
+      "DOM", // iterator and web assembly and Headers are in here
+      "ES2023"
+    ]
+  },
+  "include": [
+    "src/",
+  ]
+}
