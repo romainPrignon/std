@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "es2024", // node 24
+    "module": "nodenext",
+    "moduleDetection": "force",
+    "outDir": "./dist",
+    "esModuleInterop": false, // output commonjs only
+    "isolatedModules": true,
+    "verbatimModuleSyntax": true, // esm only
+    "declaration": true,
+    "isolatedDeclarations": true, // force public functions/methods to be fully typed
+    "skipLibCheck": true,
+    "strict": true,
+    "noUncheckedSideEffectImports": true,
+    "lib": [
+      "DOM", // iterator and web assembly and Headers are in here
+      "es2024"
+    ]
+  },
+  "include": [
+    "src/",
+  ]
+}

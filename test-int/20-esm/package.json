@@ -1,0 +1,19 @@
+{
+  "name": "20-esm",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "rm -rf dist/ && tsc",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@romainprignon/std": "../../bundle"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "typescript": "^5.9.2",
+    "vitest": "^3.2.4"
+  }
+}

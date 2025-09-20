@@ -18,7 +18,6 @@
   "assets": [
     "CHANGELOG.md",
     "LICENSE.md",
-    "package-lock.json",
     "package.json",
     "README.md"
   ],
@@ -26,8 +25,7 @@
     "bundle": "./bundle/script/bundle.js"
   },
   "scripts": {
-    "postinstall": "gitmoji --init",
-    "prepare": "husky",
+    "setup": "husky && gitmoji --init",
     "dev": "concurrently -c auto 'npm:check -- --watch --preserveWatchOutput' 'npm:test -- --watch'",
     "check": "tsgo --noEmit",
     "build": "rm -rf dist/ && tsc -p tsconfig.build.json",
@@ -44,6 +42,7 @@
     "version:major": "pnpm version --no-commit-hooks major -m '🔖 Release v%s'",
     "postversion": "git push --follow-tags",
     "bundle": "./src/script/bundle.js bundle/",
+    "bundle:cov": "attw --pack bundle/",
     "deploy": "./src/script/deploy.js",
     "ci:publish:patch": "gh workflow run publish.yml -f version=patch -f",
     "ci:publish:minor": "gh workflow run publish.yml -f version=minor -f",
@@ -57,6 +56,7 @@
     "zod": "^3.25.62"
   },
   "devDependencies": {
+    "@arethetypeswrong/cli": "^0.18.2",
     "@eslint/js": "^9.35.0",
     "@types/jest": "^30.0.0",
     "@types/lodash": "^4.17.17",
