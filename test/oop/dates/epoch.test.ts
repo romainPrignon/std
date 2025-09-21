@@ -1,4 +1,4 @@
-import { expectType } from 'tsd'
+import { expectTypeOf } from 'vitest'
 
 // test
 import { epoch } from '../../../src/fp/dates/epoch.js'
@@ -7,7 +7,7 @@ import { epoch } from '../../../src/fp/dates/epoch.js'
 describe('fp/dates/epoch.ts', () => {
   describe('epoch()', () => {
     it('should be typed as Date', () => {
-      expectType<Date>(epoch())
+      expectTypeOf<Date>(epoch())
     })
 
     it('should return epoch Date', () => {

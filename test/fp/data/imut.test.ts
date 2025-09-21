@@ -1,4 +1,4 @@
-import { expectType } from 'tsd'
+import { expectTypeOf } from 'vitest'
 
 // test
 import { mut } from '../../../src/fp/data/mut.js'
@@ -12,8 +12,8 @@ describe('fp/data/mut.ts', () => {
       const object = { a: 'b' }
       type ImmutableObject = {readonly a: string}
 
-      expectType<ReadonlyArray<number>>(imut(mut(array)))
-      expectType<ImmutableObject>(imut(mut(object)))
+      expectTypeOf<ReadonlyArray<number>>(imut(mut(array)))
+      expectTypeOf<ImmutableObject>(imut(mut(object)))
     })
 
     it('should return immutable value', () => {

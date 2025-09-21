@@ -1,4 +1,4 @@
-import { expectType } from 'tsd'
+import { expectTypeOf } from 'vitest'
 
 // test
 import { Err, inherit } from '../../../src/fp/errors/Error.js'
@@ -11,7 +11,7 @@ describe('fp/errors/index.ts', () => {
     const code = 'code'
 
     it('should be typed as Err', () => {
-      expectType<Error>(Err(message, { cause: err, code }))
+      expectTypeOf<Error>(Err(message, { cause: err, code }))
     })
 
     it('it should create an instance of Err', () => {
@@ -70,6 +70,25 @@ describe('fp/errors/index.ts', () => {
       expect(error.name).toBe(errorCode)
       expect(error.message).toBe(errorMessage)
       expect(error.code).toBe(errorCode)
+      expect(error.cause).toBeUndefined()
+      expect(error.context).toBeUndefined()
+      expect(error.stack).toBeDefined()
+    })
+
+    it('it should create a new error class that inherits from Err with custom code', () => {
+      // Arrange
+      const errorMessage = 'Test error message'
+      const errorCode = 'CustomError'
+      const customCode = 'CUSTOM_CODE'
+      const CustomError = inherit(Err, errorCode)
+
+      // Act
+      const error = CustomError(errorMessage, { code: customCode })
+
+      // Assert
+      expect(error.name).toBe(errorCode)
+      expect(error.message).toBe(errorMessage)
+      expect(error.code).toBe(customCode) // Should use the provided code, not the inherited name
       expect(error.cause).toBeUndefined()
       expect(error.context).toBeUndefined()
       expect(error.stack).toBeDefined()

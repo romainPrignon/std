@@ -1,4 +1,4 @@
-import { expectType } from 'tsd'
+import { expectTypeOf } from 'vitest'
 
 // test
 import { Err } from '../../../src/oop/errors/index.js'
@@ -10,7 +10,7 @@ describe('oop/error/index.ts', () => {
     const err = new globalThis.Error()
 
     it('should be typed as Error', () => {
-      expectType<Error>(new Err(message, { cause: err }))
+      expectTypeOf<Error>(new Err(message, { cause: err }))
     })
 
     it('it should create an instance of Err', () => {

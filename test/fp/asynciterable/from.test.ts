@@ -1,4 +1,4 @@
-import { expectType } from 'tsd'
+import { expectTypeOf } from 'vitest'
 import { AsyncIterable } from 'ix'
 import ix from 'ix/asynciterable'
 import { map } from 'ix/asynciterable/operators'
@@ -11,34 +11,34 @@ describe('fp/asynciterable/from.ts', () => {
   describe('from()', () => {
     it('should be typed correctly for simple function', async () => {
       const fun = from(() => [1])
-      expectType<() => ix.AsyncIterableX<number>>(fun)
+      expectTypeOf<() => ix.AsyncIterableX<number>>(fun)
 
       const res = fun()
-      expectType<ix.AsyncIterableX<number>>(res)
+      expectTypeOf<ix.AsyncIterableX<number>>(res)
     })
 
     it('should be typed correctly for function returning parameter', () => {
       const fun = from((a) => [a])
-      expectType<(...args: Array<unknown>) => ix.AsyncIterableX<unknown>>(fun)
+      expectTypeOf<(...args: Array<unknown>) => ix.AsyncIterableX<unknown>>(fun)
 
       const res = fun(1)
-      expectType<ix.AsyncIterableX<unknown>>(res)
+      expectTypeOf<ix.AsyncIterableX<unknown>>(res)
     })
 
     it('should be typed correctly for function with typed params', () => {
       const fun = from((a: number) => [a])
-      expectType<(...args: Array<number>) => ix.AsyncIterableX<number>>(fun)
+      expectTypeOf<(...args: Array<number>) => ix.AsyncIterableX<number>>(fun)
 
       const res = fun(1)
-      expectType<ix.AsyncIterableX<number>>(res)
+      expectTypeOf<ix.AsyncIterableX<number>>(res)
     })
 
     it('should be typed correctly for function with multiple params', () => {
       const fun = from((a: number, b: string) => a + b)
-      expectType<(...args: [number, string]) => ix.AsyncIterableX<number | string>>(fun)
+      expectTypeOf<(...args: [number, string]) => ix.AsyncIterableX<number | string>>(fun)
 
       const res = fun(1, 'a')
-      expectType<ix.AsyncIterableX<number | string>>(res)
+      expectTypeOf<ix.AsyncIterableX<number | string>>(res)
     })
 
     it('should make result async iterable from fun', async () => {

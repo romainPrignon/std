@@ -1,5 +1,4 @@
-import { expectType } from 'tsd'
-
+import { expectTypeOf } from 'vitest'
 // test
 import { date } from '../../../src/fp/dates/date.js'
 
@@ -7,7 +6,7 @@ import { date } from '../../../src/fp/dates/date.js'
 describe('fp/dates/date.ts', () => {
   describe('date()', () => {
     it('should be typed as Date', () => {
-      expectType<Date>(date(2020))
+      expectTypeOf<Date>(date(2020))
     })
 
     it('should return a Date', () => {

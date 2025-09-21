@@ -1,5 +1,4 @@
-import { expectType } from 'tsd'
-
+import { expectTypeOf } from 'vitest'
 // test
 import { callable } from '../../../src/fp/classes/callable.js'
 
@@ -9,8 +8,8 @@ describe('fp/classes/callable.ts', () => {
     it('should be typed as a factory function', () => {
       class A {}
       const a = callable(A)
-      expectType<(...args: never[]) => A>(a)
-      expectType<A>(a())
+      expectTypeOf<(...args: never[]) => A>(a)
+      expectTypeOf<A>(a())
 
       class B {
         x: number
@@ -22,8 +21,8 @@ describe('fp/classes/callable.ts', () => {
       }
 
       const b = callable(B)
-      expectType<(...args: [number, string]) => B>(b)
-      expectType<B>(b(1, 'foo'))
+      expectTypeOf<(...args: [number, string]) => B>(b)
+      expectTypeOf<B>(b(1, 'foo'))
     })
 
     it('should return a factory function', () => {

@@ -1,6 +1,6 @@
 import { type Maybe } from '../../../src/type/index.js'
 
-import { expectType } from 'tsd'
+import { expectTypeOf } from 'vitest'
 
 // test
 import { tail } from '../../../src/oop/arrays/tail.js'
@@ -9,12 +9,12 @@ import { tail } from '../../../src/oop/arrays/tail.js'
 describe('ooprays/tail.ts', () => {
   describe('tail()', () => {
     it('should be typed as undefined for empty array', () => {
-      expectType<undefined>(tail([]))
+      expectTypeOf<undefined>(tail([]))
     })
 
     it('should be typed as optional number for array of number', () => {
-      expectType<Maybe<number>>(tail([1]))
-      expectType<Maybe<number>>(tail([1, 2]))
+      expectTypeOf<Maybe<number>>(tail([1]))
+      expectTypeOf<Maybe<number>>(tail([1, 2]))
     })
 
     it('should return undefined for empty array', () => {

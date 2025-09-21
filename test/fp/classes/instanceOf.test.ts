@@ -1,4 +1,4 @@
-import { expectType } from 'tsd'
+import { expectTypeOf } from 'vitest'
 
 // test
 import { instanceOf } from '../../../src/fp/classes/instanceOf.js'
@@ -10,7 +10,7 @@ describe('fp/classes/instanceOf.ts', () => {
       class A {}
       const a = new A()
 
-      expectType<boolean>(instanceOf(A, a))
+      expectTypeOf<boolean>(instanceOf(A, a))
     })
 
     it('should be typed as curried', () => {
@@ -18,8 +18,8 @@ describe('fp/classes/instanceOf.ts', () => {
       const a = new A()
       const instanceOfA = instanceOf(A)
 
-      expectType<(val: unknown) => boolean>(instanceOfA)
-      expectType<boolean>(instanceOfA(a))
+      expectTypeOf<(val: unknown) => boolean>(instanceOfA)
+      expectTypeOf<boolean>(instanceOfA(a))
     })
 
     it('should return true if a instanceof A', () => {

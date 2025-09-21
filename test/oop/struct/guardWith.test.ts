@@ -1,4 +1,4 @@
-import { expectType } from 'tsd'
+import { expectTypeOf } from 'vitest'
 import * as z from 'zod'
 
 // test
@@ -11,7 +11,7 @@ describe('oop/struct/guardWith.ts', () => {
       const numberSchema = z.number()
       const numberGuard = guardWith(numberSchema)
 
-      expectType<(input: unknown) => boolean>(numberGuard)
+      expectTypeOf<(input: unknown) => boolean>(numberGuard)
     })
     it('should be typed correctly when calling guard', () => {
       const numberSchema = z.number()
@@ -19,7 +19,7 @@ describe('oop/struct/guardWith.ts', () => {
 
       const numberGuard = guardWith(numberSchema)
 
-      expectType<boolean>(numberGuard(input))
+      expectTypeOf<boolean>(numberGuard(input))
     })
 
     it('should return false if input is not a number', () => {

@@ -10,7 +10,6 @@ const inherit = (err: typeof Err, name: string) => (...args: ConstructorParamete
   const [, data] = args
 
   _err.name = name
-  /* istanbul ignore next */
   _err.code = data?.code ? data?.code : name
 
   return _err
