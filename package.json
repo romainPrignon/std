@@ -50,11 +50,11 @@
     "ci:publish:major": "gh workflow run publish.yml -f version=major -f"
   },
   "dependencies": {
-    "@sindresorhus/is": "^4.6.0",
+    "@sindresorhus/is": "^7.1.0",
     "ix": "^7.0.0",
     "lodash": "^4.17.21",
     "type-fest": "^1.4.0",
-    "zod": "^3.25.62"
+    "zod": "^4.1.11"
   },
   "devDependencies": {
     "@arethetypeswrong/cli": "^0.18.2",
