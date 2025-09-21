@@ -1,5 +1,5 @@
 // test
-import * as strings from '../../../src/oop/strings'
+import * as strings from '../../../src/oop/strings/index.js'
 
 
 describe('strings', () => {

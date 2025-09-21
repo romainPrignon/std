@@ -1,7 +1,7 @@
 import { expectType } from 'tsd'
 
 // test
-import { epoch } from '../../../src/fp/dates/epoch'
+import { epoch } from '../../../src/fp/dates/epoch.js'
 
 
 describe('fp/dates/epoch.ts', () => {

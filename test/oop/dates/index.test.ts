@@ -1,5 +1,5 @@
 // test
-import * as dates from '../../../src/oop/dates'
+import * as dates from '../../../src/oop/dates/index.js'
 
 
 describe('dates', () => {

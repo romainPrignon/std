@@ -1,5 +1,5 @@
 // test
-import * as objects from '../../../src/fp/objects'
+import * as objects from '../../../src/fp/objects/index.js'
 
 
 describe('objects', () => {

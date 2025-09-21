@@ -1,5 +1,5 @@
 import * as ix from 'ix/iterable'
-import type { Fun, UnknownArgs, UnknownReturns } from '../../type'
+import type { Fun, UnknownArgs, UnknownReturns } from '../../type/index.js'
 
 type IterableInput<T> = Iterable<T> | Iterator<T>
 

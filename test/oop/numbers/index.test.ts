@@ -1,6 +1,6 @@
 // test
-import { Number } from '../../../src/oop/numbers'
-import * as numbers from '../../../src/oop/numbers'
+import { Number } from '../../../src/oop/numbers/index.js'
+import * as numbers from '../../../src/oop/numbers/index.js'
 
 
 describe('numbers', () => {

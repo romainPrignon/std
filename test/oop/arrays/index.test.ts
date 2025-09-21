@@ -1,6 +1,6 @@
 // test
-import { head, tail } from '../../../src/oop/arrays'
-import * as arrays from '../../../src/oop/arrays'
+import { head, tail } from '../../../src/oop/arrays/index.js'
+import * as arrays from '../../../src/oop/arrays/index.js'
 
 
 describe('arrays', () => {

@@ -1,7 +1,7 @@
 import { expectType } from 'tsd'
 
 // test
-import { instanceOf } from '../../../src/fp/classes/instanceOf'
+import { instanceOf } from '../../../src/fp/classes/instanceOf.js'
 
 
 describe('fp/classes/instanceOf.ts', () => {

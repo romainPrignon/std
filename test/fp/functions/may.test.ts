@@ -1,8 +1,8 @@
 import { expectType } from 'tsd'
-import { Err } from '../../../src/fp/errors/Error'
+import { Err } from '../../../src/fp/errors/Error.js'
 
 // test
-import { may } from '../../../src/fp/functions/may'
+import { may } from '../../../src/fp/functions/may.js'
 
 
 describe('fp/functions/may.ts', () => {

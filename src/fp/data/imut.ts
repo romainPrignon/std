@@ -1,1 +1,1 @@
-export * from '../../_internal/data/imut'
+export * from '../../_internal/data/imut.js'

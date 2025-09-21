@@ -4,7 +4,7 @@ import ix from 'ix/iterable'
 import { map } from 'ix/iterable/operators'
 
 // test
-import { from } from '../../../src/fp/iterable/from'
+import { from } from '../../../src/fp/iterable/from.js'
 
 
 describe('fp/iterable/from.ts', () => {

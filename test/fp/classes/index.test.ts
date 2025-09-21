@@ -1,6 +1,6 @@
 // test
-import { callable, instanceOf } from '../../../src/fp/classes'
-import * as classes from '../../../src/fp/classes'
+import { callable, instanceOf } from '../../../src/fp/classes/index.js'
+import * as classes from '../../../src/fp/classes/index.js'
 
 
 describe('classes', () => {

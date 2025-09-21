@@ -1,2 +1,2 @@
-export * from './head'
-export * from './tail'
+export * from './head.js'
+export * from './tail.js'

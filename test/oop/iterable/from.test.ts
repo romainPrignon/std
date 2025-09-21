@@ -3,7 +3,7 @@ import { Iterable } from 'ix'
 import ix from 'ix/iterable'
 
 // test
-import { from } from '../../../src/oop/iterable/from'
+import { from } from '../../../src/oop/iterable/from.js'
 
 
 describe('oop/iterable/from.ts', () => {

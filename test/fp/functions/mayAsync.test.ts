@@ -1,8 +1,8 @@
 import { expectType } from 'tsd'
-import { Err } from '../../../src/fp/errors/Error'
+import { Err } from '../../../src/fp/errors/Error.js'
 
 // test
-import { mayAsync } from '../../../src/fp/functions/mayAsync'
+import { mayAsync } from '../../../src/fp/functions/mayAsync.js'
 
 
 describe('fp/functions/mayAsync.ts', () => {

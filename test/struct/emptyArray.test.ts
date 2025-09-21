@@ -2,7 +2,7 @@ import { expectType } from 'tsd'
 import * as zod from 'zod'
 
 // test
-import * as struct from '../../src/struct/emptyArray'
+import * as struct from '../../src/struct/emptyArray.js'
 
 
 describe('emptyArray.ts', () => {

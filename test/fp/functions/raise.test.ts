@@ -1,24 +1,24 @@
 import { expectType } from 'tsd'
-import { Err, inherit } from '../../../src/fp/errors'
+import { Err, inherit } from '../../../src/fp/errors/index.js'
 
 // test
-import { raise } from '../../../src/fp/functions/raise'
+import { raise } from '../../../src/fp/functions/raise.js'
 
 
 describe('fp/functions/raise.ts', () => {
   describe('raise()', () => {
     it('should be typed correctly', () => {
       const rootError = new Error()
-      expectType<() => never>(() => raise(rootError))  
+      expectType<() => never>(() => raise(rootError))
     })
 
     it('should be typed correctly for Err', () => {
-      expectType<() => never>(() => raise(Err('boom')))  
+      expectType<() => never>(() => raise(Err('boom')))
     })
 
     it('should be typed correctly for CustomError', () => {
       const CustomError = inherit(Err, 'CustomError')
-      expectType<() => never>(() => raise(CustomError('boom')))  
+      expectType<() => never>(() => raise(CustomError('boom')))
     })
 
     it('should throw an Error', async () => {

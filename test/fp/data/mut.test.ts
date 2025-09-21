@@ -1,8 +1,8 @@
 import { expectType } from 'tsd'
 
 // test
-import { mut } from '../../../src/fp/data/mut'
-import { imut } from '../../../src/fp/data'
+import { mut } from '../../../src/fp/data/mut.js'
+import { imut } from '../../../src/fp/data/index.js'
 
 
 describe('fp/data/mut.ts', () => {

@@ -1,4 +1,4 @@
-import type { UnknownArgs, Fun, UnknownReturns } from '../../type'
+import type { UnknownArgs, Fun, UnknownReturns } from '../../type/index.js'
 import * as ix from 'ix/asynciterable'
 
 

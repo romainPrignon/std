@@ -1,5 +1,5 @@
 import type { Class } from 'type-fest'
-import type { UnknownArgs, Fun } from '../../type'
+import type { UnknownArgs, Fun } from '../../type/index.js'
 
 /**
  * return callable function from a Class

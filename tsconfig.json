@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "ES2023", // node 22
     "module": "nodenext",
-    "moduleResolution": "NodeNext",
+    "moduleResolution": "nodenext",
     "moduleDetection": "force",
     "outDir": "./dist",
     "esModuleInterop": true,

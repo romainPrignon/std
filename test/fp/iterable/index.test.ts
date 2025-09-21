@@ -1,6 +1,6 @@
 // test
-import { from } from '../../../src/fp/iterable'
-import * as iterable from '../../../src/fp/iterable'
+import { from } from '../../../src/fp/iterable/index.js'
+import * as iterable from '../../../src/fp/iterable/index.js'
 
 
 describe('iterable', () => {

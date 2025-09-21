@@ -1,7 +1,7 @@
 import { expectType } from 'tsd'
 
 // test
-import { concat } from '../../../src/fp/strings/concat'
+import { concat } from '../../../src/fp/strings/concat.js'
 
 
 describe('fp/strings/concat.ts', () => {

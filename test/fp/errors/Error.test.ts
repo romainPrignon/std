@@ -1,7 +1,7 @@
 import { expectType } from 'tsd'
 
 // test
-import { Err, inherit } from '../../../src/fp/errors/Error'
+import { Err, inherit } from '../../../src/fp/errors/Error.js'
 
 
 describe('fp/errors/index.ts', () => {

@@ -2,7 +2,7 @@ import { expectType } from 'tsd'
 import * as z from 'zod'
 
 // test
-import { assertWith } from '../../../src/oop/struct/assertWith'
+import { assertWith } from '../../../src/oop/struct/assertWith.js'
 
 
 describe('oop/struct/assertWith.ts', () => {

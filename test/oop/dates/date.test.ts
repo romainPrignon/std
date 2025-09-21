@@ -1,7 +1,7 @@
 import { expectType } from 'tsd'
 
 // test
-import { date } from '../../../src/fp/dates/date'
+import { date } from '../../../src/fp/dates/date.js'
 
 
 describe('fp/dates/date.ts', () => {

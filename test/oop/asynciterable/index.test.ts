@@ -1,6 +1,6 @@
 // test
-import { from } from '../../../src/oop/asynciterable'
-import * as asynciterable from '../../../src/oop/asynciterable'
+import { from } from '../../../src/oop/asynciterable/index.js'
+import * as asynciterable from '../../../src/oop/asynciterable/index.js'
 
 
 describe('asynciterable', () => {

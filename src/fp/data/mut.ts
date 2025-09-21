@@ -1,1 +1,1 @@
-export * from '../../_internal/data/mut'
+export * from '../../_internal/data/mut.js'

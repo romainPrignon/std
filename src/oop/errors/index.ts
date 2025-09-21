@@ -1,1 +1,1 @@
-export * from '../../_internal/error/Error'
+export * from '../../_internal/error/Error.js'

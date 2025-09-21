@@ -1,1 +1,1 @@
-export * from '../../_internal/asynciterable/from'
+export * from '../../_internal/asynciterable/from.js'

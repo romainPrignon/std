@@ -1,9 +1,9 @@
-import { Maybe } from '../../../src/type'
+import { Maybe } from '../../../src/type/index.js'
 
 import { expectType } from 'tsd'
 
 // test
-import { tail } from '../../../src/oop/arrays/tail'
+import { tail } from '../../../src/oop/arrays/tail.js'
 
 
 describe('ooprays/tail.ts', () => {

@@ -1,7 +1,7 @@
 import { expectType } from 'tsd'
 
 // test
-import { Number } from '../../../src/oop/numbers/Number'
+import { Number } from '../../../src/oop/numbers/Number.js'
 
 
 describe('oop/numbers/Number.ts', () => {

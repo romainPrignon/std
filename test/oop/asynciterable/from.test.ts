@@ -3,7 +3,7 @@ import ix from 'ix/asynciterable'
 import { expectType } from 'tsd'
 
 // test
-import { from } from '../../../src/oop/asynciterable/from'
+import { from } from '../../../src/oop/asynciterable/from.js'
 
 
 describe('oopynciterable/from.ts', () => {

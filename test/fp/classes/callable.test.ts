@@ -1,7 +1,7 @@
 import { expectType } from 'tsd'
 
 // test
-import { callable } from '../../../src/fp/classes/callable'
+import { callable } from '../../../src/fp/classes/callable.js'
 
 
 describe('fp/classes/callable.ts', () => {

@@ -1,6 +1,6 @@
 // test
-import { isMultipleOf } from '../../../src/fp/numbers'
-import * as numbers from '../../../src/fp/numbers'
+import { isMultipleOf } from '../../../src/fp/numbers/index.js'
+import * as numbers from '../../../src/fp/numbers/index.js'
 
 
 describe('numbers', () => {

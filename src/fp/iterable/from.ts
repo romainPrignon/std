@@ -1,1 +1,1 @@
-export * from '../../_internal/iterable/from'
+export * from '../../_internal/iterable/from.js'

@@ -1,9 +1,9 @@
-import { Maybe } from '../../../src/type'
+import { Maybe } from '../../../src/type/index.js'
 
 import { expectType } from 'tsd'
 
 // test
-import { maybe } from '../../../src/fp/functions/maybe'
+import { maybe } from '../../../src/fp/functions/maybe.js'
 
 
 describe('fp/functions/maybe.ts', () => {

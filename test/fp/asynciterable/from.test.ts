@@ -4,7 +4,7 @@ import ix from 'ix/asynciterable'
 import { map } from 'ix/asynciterable/operators'
 
 // test
-import { from } from '../../../src/fp/asynciterable/from'
+import { from } from '../../../src/fp/asynciterable/from.js'
 
 
 describe('fp/asynciterable/from.ts', () => {

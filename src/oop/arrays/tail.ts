@@ -1,6 +1,6 @@
-import type { Maybe } from '../../type'
+import type { Maybe } from '../../type/index.js'
 
-import { head } from '.'
+import { head } from './head.js'
 
 
 const tail = <R>(arr: Array<R>): Maybe<R> =>
