@@ -1,5 +1,5 @@
 import eslint from '@eslint/js'
-// import vitest from '@vitest/eslint-plugin'
+import vitest from '@vitest/eslint-plugin'
 import n from 'eslint-plugin-n'
 import promise from 'eslint-plugin-promise'
 import { defineConfig } from 'eslint/config'
@@ -15,7 +15,7 @@ export default defineConfig([
     ignores: ['src/script/']
   },
   {
-    plugins: { promise, n }
+    plugins: { promise, n, vitest }
   },
   {
     languageOptions: {
@@ -46,11 +46,10 @@ export default defineConfig([
       ...eslint.configs.recommended.rules,
       ...tseslint.configs.eslintRecommended.rules, // disables rules from eslint:recommended which are already handled by ts
       ...tseslint.configs.recommended.rules,
-      // ...vitest.configs.recommended.rules,
       ...promise.configs.recommended.rules,
       ...n.configs['flat/recommended-module'].rules,
       // errors rules
-      // 'vitest/no-focused-tests': 'error',
+      'vitest/no-focused-tests': 'error',
       '@typescript-eslint/array-type': ['error', { default: 'generic' }],
       '@typescript-eslint/no-unused-vars': [
         'error',
