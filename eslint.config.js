@@ -20,7 +20,7 @@ export default defineConfig([
   {
     languageOptions: {
       ecmaVersion: 2023, // node 22
-      sourceType: 'commonjs'
+      sourceType: 'module'
     }
   },
   // if you want to enable type aware rules

@@ -5,7 +5,6 @@
   ],
   "env": {
     "builtin": true,
-    "commonjs": true,
     "es2023": true,
     "jest": true,
     "node": true,
