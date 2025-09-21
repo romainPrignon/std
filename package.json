@@ -51,7 +51,7 @@
   },
   "dependencies": {
     "@sindresorhus/is": "^4.6.0",
-    "ix": "^4.6.1",
+    "ix": "^7.0.0",
     "lodash": "^4.17.21",
     "type-fest": "^1.4.0",
     "zod": "^3.25.62"
