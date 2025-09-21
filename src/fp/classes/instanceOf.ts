@@ -1,6 +1,6 @@
-import { Class } from 'type-fest'
+import type { Class } from 'type-fest'
 
-import l, { CurriedFunction2 } from 'lodash'
+import l, { type CurriedFunction2 } from 'lodash'
 
 
 /**

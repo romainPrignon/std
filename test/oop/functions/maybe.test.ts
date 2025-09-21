@@ -1,4 +1,4 @@
-import { Maybe } from '../../../src/type/index.js'
+import { type Maybe } from '../../../src/type/index.js'
 
 import { expectType } from 'tsd'
 

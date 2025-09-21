@@ -1,4 +1,4 @@
-import { Err as _Err, ErrData } from '../../_internal/error/Error.js'
+import { Err as _Err, type ErrData } from '../../_internal/error/Error.js'
 import type { Fun } from '../../type/Fun.js'
 import { callable } from '../classes/callable.js'
 

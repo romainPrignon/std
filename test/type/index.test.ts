@@ -1,7 +1,7 @@
 import { expectType } from 'tsd'
 
 // test
-import { Fun, Maybe, Mutable, AsyncFun, Immutable, Args, UnknownArgs, Returns, UnknownReturns } from '../../src/type/index.js'
+import { type Fun, type Maybe, type Mutable, type AsyncFun, type Immutable, type Args, type UnknownArgs, type Returns, type UnknownReturns } from '../../src/type/index.js'
 import * as Utils from '../../src/type/index.js'
 
 const id = <T>(): T => ({}) as T
