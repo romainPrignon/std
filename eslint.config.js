@@ -51,6 +51,7 @@ export default defineConfig([
       ...n.configs['flat/recommended-module'].rules,
       // errors rules
       // 'vitest/no-focused-tests': 'error',
+      '@typescript-eslint/array-type': ['error', { default: 'generic' }],
       '@typescript-eslint/no-unused-vars': [
         'error',
         {
