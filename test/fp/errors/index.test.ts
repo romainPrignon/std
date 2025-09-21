@@ -1,6 +1,6 @@
 // test
-import { Err } from '../../../src/fp/errors'
-import * as errors from '../../../src/fp/errors'
+import { Err } from '../../../src/fp/errors/index.js'
+import * as errors from '../../../src/fp/errors/index.js'
 
 
 describe('errors', () => {

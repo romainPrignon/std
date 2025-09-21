@@ -1,24 +1,24 @@
-import { expectType } from 'tsd'
-import { Err, inherit } from '../../../src/fp/errors'
+import { expectTypeOf } from 'vitest'
+import { Err, inherit } from '../../../src/fp/errors/index.js'
 
 // test
-import { raise } from '../../../src/fp/functions/raise'
+import { raise } from '../../../src/fp/functions/raise.js'
 
 
 describe('fp/functions/raise.ts', () => {
   describe('raise()', () => {
     it('should be typed correctly', () => {
       const rootError = new Error()
-      expectType<() => never>(() => raise(rootError))  
+      expectTypeOf<() => never>(() => raise(rootError))
     })
 
     it('should be typed correctly for Err', () => {
-      expectType<() => never>(() => raise(Err('boom')))  
+      expectTypeOf<() => never>(() => raise(Err('boom')))
     })
 
     it('should be typed correctly for CustomError', () => {
       const CustomError = inherit(Err, 'CustomError')
-      expectType<() => never>(() => raise(CustomError('boom')))  
+      expectTypeOf<() => never>(() => raise(CustomError('boom')))
     })
 
     it('should throw an Error', async () => {

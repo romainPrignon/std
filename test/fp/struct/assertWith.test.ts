@@ -1,8 +1,8 @@
-import { expectType } from 'tsd'
+import { expectTypeOf } from 'vitest'
 import * as z from 'zod'
 
 // test
-import { assertWith } from '../../../src/oop/struct/assertWith'
+import { assertWith } from '../../../src/oop/struct/assertWith.js'
 
 
 describe('oop/struct/assertWith.ts', () => {
@@ -11,7 +11,7 @@ describe('oop/struct/assertWith.ts', () => {
       const numberSchema = z.number()
       const numberAssertion = assertWith(numberSchema)
 
-      expectType<(input: unknown) => void>(numberAssertion)
+      expectTypeOf<(input: unknown) => void>(numberAssertion)
     })
     it('should be typed correctly when calling assertion', () => {
       const numberSchema = z.number()
@@ -19,7 +19,7 @@ describe('oop/struct/assertWith.ts', () => {
 
       const numberAssertion = assertWith(numberSchema)
 
-      expectType<void>(numberAssertion(input))
+      expectTypeOf<void>(numberAssertion(input))
     })
 
     it('should return false if input is not a number', () => {

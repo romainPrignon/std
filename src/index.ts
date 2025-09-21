@@ -1,4 +1,4 @@
-export * as oop from './oop'
-export * as fp from './fp'
-export * as struct from './struct'
-export type * as type from './type'
+export * as oop from './oop/index.js'
+export * as fp from './fp/index.js'
+export * as struct from './struct/index.js'
+export type * as type from './type/index.js'

@@ -1,18 +1,18 @@
-import { expectType } from 'tsd'
+import { expectTypeOf, vi } from 'vitest'
 
 // test
-import { now } from '../../../src/fp/dates/now'
+import { now } from '../../../src/fp/dates/now.js'
 
 
 describe('fp/dates/now.ts', () => {
   describe('now()', () => {
     it('should be typed as Date', () => {
-      expectType<Date>(now())
+      expectTypeOf<Date>(now())
     })
 
     it('should return current Date', () => {
       // Mock
-      jest.spyOn(Date, 'now').mockImplementation(() => 0)
+      vi.spyOn(Date, 'now').mockImplementation(() => 0)
 
       expect(now()).toEqual(new Date(0))
     })

@@ -1,51 +1,51 @@
-import { Maybe } from '../../../src/type'
+import { type Maybe } from '../../../src/type/index.js'
 
-import { expectType } from 'tsd'
+import { expectTypeOf } from 'vitest'
 
 // test
-import { maybe } from '../../../src/fp/functions/maybe'
+import { maybe } from '../../../src/fp/functions/maybe.js'
 
 
 describe('fp/functions/maybe.ts', () => {
   describe('maybe()', () => {
     it('should be typed correctly for simple function', () => {
       const opt = maybe(() => 1)
-      expectType<(...args: Array<never>) => Maybe<number>>(opt)
+      expectTypeOf<(...args: Array<never>) => Maybe<number>>(opt)
 
       const res = opt()
-      expectType<Maybe<number>>(res)
+      expectTypeOf<Maybe<number>>(res)
     })
 
     it('should be typed correctly for function returning undefined', () => {
       const opt = maybe(() => undefined)
-      expectType<(...args: Array<never>) => Maybe<undefined>>(opt)
+      expectTypeOf<(...args: Array<never>) => Maybe<undefined>>(opt)
 
       const res = opt()
-      expectType<Maybe<number>>(res)
+      expectTypeOf<Maybe<number>>(res)
     })
 
     it('should be typed correctly for function returning parameter', () => {
       const opt = maybe((a) => a)
-      expectType<(...args: Array<unknown>) => Maybe<unknown>>(opt)
+      expectTypeOf<(...args: Array<unknown>) => Maybe<unknown>>(opt)
 
       const res = opt(1)
-      expectType<Maybe<unknown>>(res)
+      expectTypeOf<Maybe<unknown>>(res)
     })
 
     it('should be typed correctly for function with typed params', () => {
       const opt = maybe((a: number) => a)
-      expectType<(...args: Array<number>) => Maybe<number>>(opt)
+      expectTypeOf<(...args: Array<number>) => Maybe<number>>(opt)
 
       const res = opt(1)
-      expectType<Maybe<number>>(res)
+      expectTypeOf<Maybe<number>>(res)
     })
 
     it('should be typed correctly for function with multiple params', () => {
       const opt = maybe((a: number, b: string) => a + b)
-      expectType<(...args: [number, string]) => Maybe<number | string>>(opt)
+      expectTypeOf<(...args: [number, string]) => Maybe<number | string>>(opt)
 
       const res = opt(1, 'a')
-      expectType<Maybe<number | string>>(res)
+      expectTypeOf<Maybe<number | string>>(res)
     })
 
     it('should make result maybe', () => {

@@ -20,7 +20,7 @@ export default defineConfig([
   {
     languageOptions: {
       ecmaVersion: 2023, // node 22
-      sourceType: 'commonjs'
+      sourceType: 'module'
     }
   },
   // if you want to enable type aware rules
@@ -51,6 +51,7 @@ export default defineConfig([
       ...n.configs['flat/recommended-module'].rules,
       // errors rules
       // 'vitest/no-focused-tests': 'error',
+      '@typescript-eslint/array-type': ['error', { default: 'generic' }],
       '@typescript-eslint/no-unused-vars': [
         'error',
         {

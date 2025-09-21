@@ -1,6 +1,6 @@
 // test
-import { date, epoch, now } from '../../../src/fp/dates'
-import * as dates from '../../../src/fp/dates'
+import { date, epoch, now } from '../../../src/fp/dates/index.js'
+import * as dates from '../../../src/fp/dates/index.js'
 
 
 describe('dates', () => {

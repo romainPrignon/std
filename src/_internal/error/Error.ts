@@ -24,7 +24,6 @@ class Err extends Error {
     const errorClass = class extends this {
       constructor (message: string, data?: ErrData) {
         super(message, data)
-        /* istanbul ignore next */
         this.code = data?.code ? data?.code : name
       }
     }

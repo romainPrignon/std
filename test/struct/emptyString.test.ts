@@ -1,38 +1,32 @@
-import { expectType } from 'tsd'
+import { expectTypeOf } from 'vitest'
 import * as zod from 'zod'
 
 // test
-import * as struct from '../../src/struct/emptyString'
+import * as struct from '../../src/struct/emptyString.js'
 
 
 describe('emptyString.ts', () => {
   describe('EmptyString()', () => {
     it('should be tagged correctly', () => {
-      expectType<zod.ZodType<''>>(struct.EmptyString)
+      expectTypeOf<zod.ZodType<''>>(struct.EmptyString)
     })
 
     it('should handle parse', () => {
-      const zodError = {
-        code: zod.ZodIssueCode.custom,
-        message: 'Expect Empty String',
-        fatal: true,
-        path: []
-      }
-
-      expectType<''>(struct.EmptyString.parse(''))
-      expect(() => struct.EmptyString.parse('a')).toThrow(new zod.ZodError([zodError]))
+      expectTypeOf<''>(struct.EmptyString.parse(''))
+      expect(() => struct.EmptyString.parse('a')).toThrowErrorMatchingInlineSnapshot(`
+        [ZodError: [
+          {
+            "code": "custom",
+            "path": [],
+            "message": "Expect Empty String"
+          }
+        ]]
+      `)
       expect(struct.EmptyString.parse('')).toEqual('')
     })
 
 
     it('should handle safeParse', async () => {
-      const zodError = {
-        code: zod.ZodIssueCode.custom,
-        message: 'Expect Empty String',
-        fatal: true,
-        path: []
-      }
-
       type SafeParseResult = {
         success: false
         error: zod.ZodError
@@ -41,8 +35,19 @@ describe('emptyString.ts', () => {
         data: ''
       }
 
-      expectType<SafeParseResult>(struct.EmptyString.safeParse(''))
-      expect(struct.EmptyString.safeParse('a')).toEqual({ success: false, error: new zod.ZodError([zodError]) })
+      expectTypeOf<SafeParseResult>(struct.EmptyString.safeParse(''))
+      expect(struct.EmptyString.safeParse('a')).toMatchInlineSnapshot(`
+        {
+          "error": [ZodError: [
+          {
+            "code": "custom",
+            "path": [],
+            "message": "Expect Empty String"
+          }
+        ]],
+          "success": false,
+        }
+      `)
       expect(struct.EmptyString.safeParse('')).toEqual({ success: true, data: '' })
     })
   })

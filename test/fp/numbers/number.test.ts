@@ -1,5 +1,5 @@
 // test
-import { isMultipleOf } from '../../../src/fp/numbers/number'
+import { isMultipleOf } from '../../../src/fp/numbers/number.js'
 
 
 describe('fp/numbers/number.ts', () => {

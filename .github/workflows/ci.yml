@@ -45,7 +45,7 @@ jobs:
       # integration test
       - name: integration install
         working-directory: test-int/${{ matrix.node }}-${{ matrix.module_type }}
-        run: npm ci
+        run: npm install
 
       - name: integration build
         working-directory: test-int/${{ matrix.node }}-${{ matrix.module_type }}

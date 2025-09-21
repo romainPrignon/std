@@ -1,8 +1,8 @@
-import { expectType } from 'tsd'
+import { expectTypeOf } from 'vitest'
 
 // test
-import { mut } from '../../../src/fp/data/mut'
-import { imut } from '../../../src/fp/data'
+import { mut } from '../../../src/fp/data/mut.js'
+import { imut } from '../../../src/fp/data/index.js'
 
 
 describe('fp/data/mut.ts', () => {
@@ -11,8 +11,8 @@ describe('fp/data/mut.ts', () => {
       const array = [1]
       const object = { a: 'b' }
 
-      expectType<typeof array>(mut(imut(array)))
-      expectType<typeof object>(mut(imut(object)))
+      expectTypeOf<typeof array>(mut(imut(array)))
+      expectTypeOf<typeof object>(mut(imut(object)))
     })
 
     it('should return mutable value', () => {

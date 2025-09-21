@@ -1,1 +1,1 @@
-export * from '../../_internal/struct/assertWith'
+export * from '../../_internal/struct/assertWith.js'

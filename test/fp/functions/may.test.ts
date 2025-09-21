@@ -1,17 +1,17 @@
-import { expectType } from 'tsd'
-import { Err } from '../../../src/fp/errors/Error'
+import { expectTypeOf } from 'vitest'
+import { Err } from '../../../src/fp/errors/Error.js'
 
 // test
-import { may } from '../../../src/fp/functions/may'
+import { may } from '../../../src/fp/functions/may.js'
 
 
 describe('fp/functions/may.ts', () => {
   describe('may()', () => {
     it('should be typed as R1', () => {
-      expectType<number>(may(() => 1))
+      expectTypeOf<number>(may(() => 1))
     })
     it('should be typed as R1 | R2', () => {
-      expectType<number | string>(may(() => 1, () => 'a'))
+      expectTypeOf<number | string>(may(() => 1, () => 'a'))
     })
 
     it('should return an Err if failure callback not provided', () => {

@@ -21,7 +21,7 @@ export default defineConfig([
   {
     languageOptions: {
       ecmaVersion: 2023,
-      sourceType: 'commonjs'
+      sourceType: 'module'
     }
   },
   {

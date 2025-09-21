@@ -1,17 +1,17 @@
-import { expectType } from 'tsd'
+import { expectTypeOf } from 'vitest'
 
 // test
-import { concat } from '../../../src/fp/strings/concat'
+import { concat } from '../../../src/fp/strings/concat.js'
 
 
 describe('fp/strings/concat.ts', () => {
   describe('concat()', () => {
     it('should be typed as curried', () => {
-      expectType<(str: string) => string>(concat('a'))
+      expectTypeOf<(str: string) => string>(concat('a'))
     })
 
     it('should be typed as string', () => {
-      expectType<string>(concat('a', 'b'))
+      expectTypeOf<string>(concat('a', 'b'))
     })
 
     it('should return a concat string', () => {

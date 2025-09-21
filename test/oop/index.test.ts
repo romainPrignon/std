@@ -1,6 +1,6 @@
 // test
-import { arrays, classes, dates, errors, functions, numbers, objects, strings, data, struct } from '../../src/oop'
-import * as Native from '../../src/oop'
+import { arrays, classes, dates, errors, functions, numbers, objects, strings, data, struct } from '../../src/oop/index.js'
+import * as Native from '../../src/oop/index.js'
 
 
 describe('oop', () => {

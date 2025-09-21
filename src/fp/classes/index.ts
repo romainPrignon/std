@@ -1,2 +1,2 @@
-export * from './callable'
-export * from './instanceOf'
+export * from './callable.js'
+export * from './instanceOf.js'

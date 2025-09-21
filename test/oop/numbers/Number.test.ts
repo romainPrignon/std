@@ -1,13 +1,13 @@
-import { expectType } from 'tsd'
+import { expectTypeOf } from 'vitest'
 
 // test
-import { Number } from '../../../src/oop/numbers/Number'
+import { Number } from '../../../src/oop/numbers/Number.js'
 
 
 describe('oop/numbers/Number.ts', () => {
   describe('new()', () => {
     it('should be typed as self', () => {
-      expectType<Number>(new Number(1))
+      expectTypeOf<Number>(new Number(1))
     })
 
     it('should return self', () => {

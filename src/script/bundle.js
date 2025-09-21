@@ -1,10 +1,9 @@
 #! /usr/bin/env node
 
-const { resolve } = require('path')
-const shell = require('child_process').execSync
+import { execSync as shell } from 'child_process'
+import pkg from '../../package.json' with { type: 'json' }
 
 const [bundleDir, withDeps, ..._rest] = process.argv.slice(2)
-const pkg = require(resolve('package.json'))
 
 shell(`rm -rf ${bundleDir}`)
 shell(`mkdir -p ${bundleDir}`)

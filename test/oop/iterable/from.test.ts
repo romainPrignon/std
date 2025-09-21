@@ -1,43 +1,43 @@
-import { expectType } from 'tsd'
+import { expectTypeOf } from 'vitest'
 import { Iterable } from 'ix'
 import ix from 'ix/iterable'
 
 // test
-import { from } from '../../../src/oop/iterable/from'
+import { from } from '../../../src/oop/iterable/from.js'
 
 
 describe('oop/iterable/from.ts', () => {
   describe('from()', () => {
     it('should be typed correctly for simple function', async () => {
       const fun = from(() => [1])
-      expectType<() => ix.IterableX<number>>(fun)
+      expectTypeOf<() => ix.IterableX<number>>(fun)
 
       const res = fun()
-      expectType<ix.IterableX<number>>(res)
+      expectTypeOf<ix.IterableX<number>>(res)
     })
 
     it('should be typed correctly for function returning parameter', () => {
       const fun = from((a) => [a])
-      expectType<(...args: Array<unknown>) => ix.IterableX<unknown>>(fun)
+      expectTypeOf<(...args: Array<unknown>) => ix.IterableX<unknown>>(fun)
 
       const res = fun(1)
-      expectType<ix.IterableX<unknown>>(res)
+      expectTypeOf<ix.IterableX<unknown>>(res)
     })
 
     it('should be typed correctly for function with typed params', () => {
       const fun = from((a: number) => [a])
-      expectType<(...args: Array<number>) => ix.IterableX<number>>(fun)
+      expectTypeOf<(...args: Array<number>) => ix.IterableX<number>>(fun)
 
       const res = fun(1)
-      expectType<ix.IterableX<number>>(res)
+      expectTypeOf<ix.IterableX<number>>(res)
     })
 
     it('should be typed correctly for function with multiple params', () => {
       const fun = from((a: number, b: string) => a + b)
-      expectType<(...args: [number, string]) => ix.IterableX<number | string>>(fun)
+      expectTypeOf<(...args: [number, string]) => ix.IterableX<number | string>>(fun)
 
       const res = fun(1, 'a')
-      expectType<ix.IterableX<number | string>>(res)
+      expectTypeOf<ix.IterableX<number | string>>(res)
     })
 
     it('should make result async iterable from fun', () => {

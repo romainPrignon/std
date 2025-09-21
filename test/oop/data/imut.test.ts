@@ -1,8 +1,8 @@
-import { expectType } from 'tsd'
+import { expectTypeOf } from 'vitest'
 
 // test
-import { mut } from '../../../src/oop/data/mut'
-import { imut } from '../../../src/oop/data'
+import { mut } from '../../../src/oop/data/mut.js'
+import { imut } from '../../../src/oop/data/index.js'
 
 
 describe('oopta/mut.ts', () => {
@@ -12,8 +12,8 @@ describe('oopta/mut.ts', () => {
       const object = { a: 'b' }
       type ImmutableObject = {readonly a: string}
 
-      expectType<ReadonlyArray<number>>(imut(mut(array)))
-      expectType<ImmutableObject>(imut(mut(object)))
+      expectTypeOf<ReadonlyArray<number>>(imut(mut(array)))
+      expectTypeOf<ImmutableObject>(imut(mut(object)))
     })
 
     it('should return immutable value', () => {

@@ -1,5 +1,5 @@
 // test
-import * as classes from '../../../src/oop/classes'
+import * as classes from '../../../src/oop/classes/index.js'
 
 
 describe('classes', () => {

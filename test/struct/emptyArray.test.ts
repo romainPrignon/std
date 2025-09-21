@@ -1,38 +1,32 @@
-import { expectType } from 'tsd'
+import { expectTypeOf } from 'vitest'
 import * as zod from 'zod'
 
 // test
-import * as struct from '../../src/struct/emptyArray'
+import * as struct from '../../src/struct/emptyArray.js'
 
 
 describe('emptyArray.ts', () => {
   describe('EmptyArray()', () => {
     it('should be tagged correctly', () => {
-      expectType<zod.ZodType<Array<never>>>(struct.EmptyArray)
+      expectTypeOf<zod.ZodType<Array<never>>>(struct.EmptyArray)
     })
 
     it('should handle parse', () => {
-      const zodError = {
-        code: zod.ZodIssueCode.custom,
-        message: 'Expect Empty Array',
-        fatal: true,
-        path: []
-      }
-
-      expectType<Array<never>>(struct.EmptyArray.parse([]))
-      expect(() => struct.EmptyArray.parse(['a'])).toThrow(new zod.ZodError([zodError]))
+      expectTypeOf<Array<never>>(struct.EmptyArray.parse([]))
+      expect(() => struct.EmptyArray.parse(['a'])).toThrowErrorMatchingInlineSnapshot(`
+        [ZodError: [
+          {
+            "code": "custom",
+            "path": [],
+            "message": "Expect Empty Array"
+          }
+        ]]
+      `)
       expect(struct.EmptyArray.parse([])).toEqual([])
     })
 
 
     it('should handle safeParse', async () => {
-      const zodError = {
-        code: zod.ZodIssueCode.custom,
-        message: 'Expect Empty Array',
-        fatal: true,
-        path: []
-      }
-
       type SafeParseResult = {
         success: false
         error: zod.ZodError
@@ -41,8 +35,19 @@ describe('emptyArray.ts', () => {
         data: Array<never>
       }
 
-      expectType<SafeParseResult>(struct.EmptyArray.safeParse([]))
-      expect(struct.EmptyArray.safeParse([1])).toEqual({ success: false, error: new zod.ZodError([zodError]) })
+      expectTypeOf<SafeParseResult>(struct.EmptyArray.safeParse([]))
+      expect(struct.EmptyArray.safeParse([1])).toMatchInlineSnapshot(`
+        {
+          "error": [ZodError: [
+          {
+            "code": "custom",
+            "path": [],
+            "message": "Expect Empty Array"
+          }
+        ]],
+          "success": false,
+        }
+      `)
       expect(struct.EmptyArray.safeParse([])).toEqual({ success: true, data: [] })
     })
   })

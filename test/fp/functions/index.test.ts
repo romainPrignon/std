@@ -1,6 +1,6 @@
 // test
-import { may, mayAsync, maybe, raise } from '../../../src/fp/functions'
-import * as functions from '../../../src/fp/functions'
+import { may, mayAsync, maybe, raise } from '../../../src/fp/functions/index.js'
+import * as functions from '../../../src/fp/functions/index.js'
 
 
 describe('functions', () => {

@@ -1,8 +1,8 @@
-import { expectType } from 'tsd'
+import { expectTypeOf } from 'vitest'
 
 // test
-import { mut } from '../../../src/oop/data/mut'
-import { imut } from '../../../src/oop/data'
+import { mut } from '../../../src/oop/data/mut.js'
+import { imut } from '../../../src/oop/data/index.js'
 
 
 describe('oopta/mut.ts', () => {
@@ -11,8 +11,8 @@ describe('oopta/mut.ts', () => {
       const array = [1]
       const object = { a: 'b' }
 
-      expectType<typeof array>(mut(imut(array)))
-      expectType<typeof object>(mut(imut(object)))
+      expectTypeOf<typeof array>(mut(imut(array)))
+      expectTypeOf<typeof object>(mut(imut(object)))
     })
 
     it('should return mutable value', () => {

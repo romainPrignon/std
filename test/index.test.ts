@@ -1,6 +1,6 @@
 // test
-import { fp, oop, struct } from '../src'
-import * as Utils from '../src'
+import { fp, oop, struct } from '../src/index.js'
+import * as Utils from '../src/index.js'
 
 
 describe('index', () => {

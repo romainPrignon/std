@@ -1,6 +1,6 @@
 // test
-import { arrays, classes, dates, errors, functions, numbers, objects, strings, data, struct } from '../../src/fp'
-import * as fp from '../../src/fp'
+import { arrays, classes, dates, errors, functions, numbers, objects, strings, data, struct } from '../../src/fp/index.js'
+import * as fp from '../../src/fp/index.js'
 
 
 describe('fp', () => {

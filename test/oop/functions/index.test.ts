@@ -1,6 +1,6 @@
 // test
-import { maybe } from '../../../src/oop/functions'
-import * as functions from '../../../src/oop/functions'
+import { maybe } from '../../../src/oop/functions/index.js'
+import * as functions from '../../../src/oop/functions/index.js'
 
 
 describe('functions', () => {

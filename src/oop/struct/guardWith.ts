@@ -1,1 +1,1 @@
-export * from '../../_internal/struct/guardWith'
+export * from '../../_internal/struct/guardWith.js'

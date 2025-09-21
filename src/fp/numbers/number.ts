@@ -1,5 +1,5 @@
-import { CurriedFunction2 } from 'lodash'
-import l from 'lodash/fp'
+import { type CurriedFunction2 } from 'lodash'
+import l from 'lodash/fp.js'
 
 const isMultipleOf: CurriedFunction2<number, number, boolean> = l.curry((divisor: number, val: number): boolean =>
   val % divisor === 0

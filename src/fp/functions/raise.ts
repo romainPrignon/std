@@ -1,4 +1,4 @@
-import type { Exception } from '../../type'
+import type { Exception } from '../../type/index.js'
 
 
 const raise = (err: Error): Exception => {

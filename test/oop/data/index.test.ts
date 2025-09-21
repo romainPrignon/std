@@ -1,6 +1,6 @@
 // test
-import { imut, mut } from '../../../src/oop/data'
-import * as data from '../../../src/oop/data'
+import { imut, mut } from '../../../src/oop/data/index.js'
+import * as data from '../../../src/oop/data/index.js'
 
 
 describe('data', () => {

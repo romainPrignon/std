@@ -1,6 +1,6 @@
 // test
-import { concat } from '../../../src/fp/strings'
-import * as strings from '../../../src/fp/strings'
+import { concat } from '../../../src/fp/strings/index.js'
+import * as strings from '../../../src/fp/strings/index.js'
 
 
 describe('strings', () => {
