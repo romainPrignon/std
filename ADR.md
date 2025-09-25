@@ -1,0 +1,2 @@
+- tsconfig should keep options that are used in the IDE as well
+- target should be set once and for all (eslint, ts, tsdown,...) with packagejson.engines.node field
