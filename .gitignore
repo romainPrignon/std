@@ -4,3 +4,7 @@ coverage/
 node_modules/
 
 .eslintcache
+
+# Ignore lockfiles in integration tests
+test-int/**/package-lock.json
+test-int/**/pnpm-lock.yaml
