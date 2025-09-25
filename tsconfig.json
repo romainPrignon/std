@@ -1,17 +1,14 @@
 {
   "compilerOptions": {
-    "target": "ES2023", // node 22
-    "module": "nodenext",
-    "moduleResolution": "nodenext",
+    "module": "preserve",
+    "moduleResolution": "bundler",
     "moduleDetection": "force",
     "outDir": "./dist",
-    "esModuleInterop": true, // todo: handle when sitching to bundler
     "isolatedModules": true,
     "verbatimModuleSyntax": true,
     "resolveJsonModule": false, // perf killer
     "declaration": true,
     "isolatedDeclarations": true, // force public functions/methods to be fully typed
-    "sourceMap": true,
     "skipLibCheck": true,
     "strict": true,
     "noUncheckedIndexedAccess": true,
@@ -21,7 +18,7 @@
     "noErrorTruncation": true,
     "lib": [
       "DOM", // iterator and web assembly and Headers are in here
-      "ES2023"
+      "ES2024" // use node 24
     ],
     "types": [
       "vitest/globals"

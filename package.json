@@ -21,6 +21,7 @@
     "./package.json": "./package.json"
   },
   "files": [
+    "bundle/",
     "CHANGELOG.md",
     "LICENSE.md",
     "package.json",
