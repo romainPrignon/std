@@ -9,7 +9,7 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "@romainprignon/std": "../../bundle"
+    "@romainprignon/std": "../../"
   },
   "devDependencies": {
     "@types/node": "^20",

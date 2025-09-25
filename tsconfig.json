@@ -1,9 +1,10 @@
 {
   "compilerOptions": {
-    "module": "preserve",
-    "moduleResolution": "bundler",
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
     "moduleDetection": "force",
     "outDir": "./dist",
+    "esModuleInterop": true,
     "isolatedModules": true,
     "verbatimModuleSyntax": true,
     "resolveJsonModule": false, // perf killer
@@ -18,7 +19,7 @@
     "noErrorTruncation": true,
     "lib": [
       "DOM", // iterator and web assembly and Headers are in here
-      "ES2024" // use node 24
+      "ES2024" // use node 24 feature
     ],
     "types": [
       "vitest/globals"
