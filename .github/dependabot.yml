@@ -1,0 +1,55 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    cooldown:
+      semver-major-days: 30
+      semver-minor-days: 7
+      semver-patch-days: 7
+    labels:
+      - "dependency"
+    open-pull-requests-limit: 3
+    rebase-strategy: "auto" # rebase for 30 days, then do nothing
+    versioning-strategy: "increase" # increase version number in package.json
+    ignore:
+      - dependency-name: "@types/node"
+        versions: [">=22"] # stick to node 22
+
+    groups:
+      minor-all:
+        patterns:
+          - "*"
+        exclude-patterns:
+          - "typescript" # typescript does not follow semver
+          - "@typescript/native-preview" # tsgo is alpha
+        update-types:
+          - "minor"
+          - "patch"
+
+      major-typescript: # treat typescript minor as major
+        patterns:
+          - "typescript"
+        update-types:
+          - "minor"
+          - "major"
+
+      major-lint:
+        patterns:
+          - "eslint"
+          - "oxlint"
+        update-types:
+          - "major"
+
+      major-test:
+        patterns:
+          - "vitest"
+        update-types:
+          - "major"
+
+      major-all:
+        patterns:
+          - "*"
+        update-types:
+          - "major"
