@@ -13,18 +13,20 @@
     "node": ">=20",
     "pnpm": ">=10"
   },
-  "source": "dist",
-  "main": "index.js",
-  "types": "index.d.ts",
-  "assets": [
+  "main": "./bundle/index.js",
+  "module": "./bundle/index.js",
+  "types": "./bundle/index.d.ts",
+  "exports": {
+    ".": "./bundle/index.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "bundle/",
     "CHANGELOG.md",
     "LICENSE.md",
     "package.json",
     "README.md"
   ],
-  "bin": {
-    "bundle": "./bundle/script/bundle.js"
-  },
   "scripts": {
     "setup": "husky && gitmoji --init",
     "dev": "concurrently -c auto 'npm:check -- --watch --preserveWatchOutput' 'npm:test -- --watch'",
@@ -42,8 +44,8 @@
     "version:minor": "pnpm version --no-commit-hooks minor -m '🔖 Release v%s'",
     "version:major": "pnpm version --no-commit-hooks major -m '🔖 Release v%s'",
     "postversion": "git push --follow-tags",
-    "bundle": "./src/script/bundle.js bundle/",
-    "bundle:cov": "attw --profile esm-only --pack bundle/",
+    "bundle": "tsdown",
+    "bundle:cov": "attw --profile esm-only --pack .",
     "deploy": "./src/script/deploy.js",
     "ci:publish:patch": "gh workflow run publish.yml -f version=patch -f",
     "ci:publish:minor": "gh workflow run publish.yml -f version=minor -f",
@@ -76,6 +78,7 @@
     "oxlint": "^1.16.0",
     "oxlint-tsgolint": "^0.2.0",
     "pinst": "2",
+    "tsdown": "^0.15.4",
     "typescript": "^5.9.2",
     "typescript-eslint": "^8.44.0",
     "vitest": "^3.2.4"
