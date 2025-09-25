@@ -37,7 +37,7 @@ jobs:
         run: pnpm run test:cov
 
       - name: bundle
-        run: pnpm run bundle --withDeps
+        run: pnpm run bundle
 
       - name: check bundle coverage
         run: pnpm run bundle:cov
