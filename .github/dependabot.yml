@@ -8,8 +8,10 @@ updates:
       semver-major-days: 30
       semver-minor-days: 7
       semver-patch-days: 7
+    commit-message:
+      prefix: ⬆️
     labels:
-      - "dependency"
+      - "dependencies"
     open-pull-requests-limit: 3
     rebase-strategy: "auto" # rebase for 30 days, then do nothing
     versioning-strategy: "increase" # increase version number in package.json
