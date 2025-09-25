@@ -3,6 +3,7 @@ import { type Fun, type Maybe, type Mutable, type AsyncFun, type Immutable, type
 import * as Utils from '../../src/type/index.js'
 import { expectTypeOf } from 'vitest'
 
+// type-coverage:ignore-next-line
 const id = <T>(): T => ({}) as T
 
 describe('index', () => {

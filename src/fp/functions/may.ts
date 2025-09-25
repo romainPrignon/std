@@ -1,4 +1,4 @@
-const may = <R1, R2>(success: () => R1, failure?: (err: any) => R2): R1 | R2 => {
+const may = <R1, R2>(success: () => R1, failure?: (err: unknown) => R2): R1 | R2 => {
   try {
     return success()
   } catch (err) {
