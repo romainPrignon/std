@@ -31,6 +31,7 @@
     "setup": "husky && gitmoji --init",
     "dev": "concurrently -c auto 'npm:check -- --watch --preserveWatchOutput' 'npm:test -- --watch'",
     "check": "tsgo --noEmit",
+    "check:cov": "type-coverage --detail --strict --ignore-catch --at-least 100",
     "build": "rm -rf dist/ && tsc -p tsconfig.build.json",
     "lint": "oxlint --type-aware src/ test/ && eslint -c oxlint.config.js --cache src/ test/",
     "fmt": "oxlint --fix src/ test/ && eslint -c oxlint.config.js --fix src/ test/",
@@ -79,6 +80,7 @@
     "oxlint-tsgolint": "^0.2.0",
     "pinst": "2",
     "tsdown": "^0.15.4",
+    "type-coverage": "^2.29.7",
     "typescript": "^5.9.2",
     "typescript-eslint": "^8.44.0",
     "vitest": "^3.2.4"

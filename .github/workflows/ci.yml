@@ -30,8 +30,11 @@ jobs:
       - name: lint
         run: pnpm run lint
 
-      - name: build
-        run: pnpm run build
+      - name: check
+        run: pnpm run check
+
+      - name: check coverage
+        run: pnpm run check:cov
 
       - name: test with coverage
         run: pnpm run test:cov
