@@ -1,5 +1,14 @@
 # Changelog
 
+<a name="5.1.0"></a>
+## 5.1.0 (2025-09-26)
+
+### Changed
+
+- ⬆️ chore: upgrade node version, use frozen-lockfile and npm publish ([#34](https://github.com/romainPrignon/std/issues/34)) [[8988292](https://github.com/romainPrignon/std/commit/89882929cce3b54ef7a4e8742ff58c33c106f0f0)]
+- ⬆️ Fix type-fest upgrade compatibility from 1.4.0 to 4.41.0 ([#33](https://github.com/romainPrignon/std/issues/33)) [[6bdfea0](https://github.com/romainPrignon/std/commit/6bdfea0ee25211497b1d89cd6d7b267384d76a93)]
+
+
 <a name="5.0.0"></a>
 ## 5.0.0 (2025-09-25)
 
