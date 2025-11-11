@@ -81,7 +81,7 @@
     "pinst": "3",
     "tsdown": "^0.15.12",
     "type-coverage": "^2.29.7",
-    "typescript": "^5.9.2",
+    "typescript": "^5.9.3",
     "typescript-eslint": "^8.46.3",
     "vitest": "^3.2.4"
   }
