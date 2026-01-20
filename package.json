@@ -13,8 +13,6 @@
     "node": ">=20",
     "pnpm": ">=10"
   },
-  "main": "./bundle/index.js",
-  "module": "./bundle/index.js",
   "types": "./bundle/index.d.ts",
   "exports": {
     ".": "./bundle/index.js",

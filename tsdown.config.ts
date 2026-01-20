@@ -12,5 +12,7 @@ export default defineConfig({
   sourcemap: false, // result in a bigger bundle size than minified+sourcemap
   minify: false, // result in a bigger bundle size if used with sourcemap
   unbundle: false, // use true and minify false to debug,
-  attw: true
+  attw: {
+    profile: 'esm-only'
+  }
 })
