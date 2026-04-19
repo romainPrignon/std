@@ -17,11 +17,13 @@
     "noUncheckedSideEffectImports": true,
     "useUnknownInCatchVariables": false,
     "noErrorTruncation": true,
+    "rootDir": "./",
     "lib": [
       "DOM", // iterator and web assembly and Headers are in here
       "ES2024" // use node 24 feature
     ],
     "types": [
+      "node",
       "vitest/globals"
     ]
   },
