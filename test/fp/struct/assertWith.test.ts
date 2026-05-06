@@ -1,42 +1,50 @@
-import { expectTypeOf } from 'vitest'
+import { describe, expect, expectTypeOf, it } from 'vitest'
 import * as z from 'zod'
-
-// test
 import { assertWith } from '../../../src/oop/struct/assertWith.js'
-
 
 describe('oop/struct/assertWith.ts', () => {
   describe('assertWith()', () => {
-    it('should be typed correctly', () => {
+    it('should return assertion function type when creating assertion', () => {
+    // Arrange
       const numberSchema = z.number()
+
+      // Act
       const numberAssertion = assertWith(numberSchema)
 
+      // Assert
       expectTypeOf<(input: unknown) => void>(numberAssertion)
     })
-    it('should be typed correctly when calling assertion', () => {
+
+    it('should return void type when calling assertion', () => {
+    // Arrange
       const numberSchema = z.number()
       const input = 1
-
       const numberAssertion = assertWith(numberSchema)
 
-      expectTypeOf<void>(numberAssertion(input))
+      // Act
+      const result = numberAssertion(input)
+
+      // Assert
+      expectTypeOf<void>(result)
     })
 
-    it('should return false if input is not a number', () => {
+    it('should throw when input does not match schema', () => {
+    // Arrange
       const numberSchema = z.number()
       const input = {}
-
       const numberAssertion = assertWith(numberSchema)
 
+      // Act & Assert
       expect(() => numberAssertion(input)).toThrow()
     })
 
-    it('should return true if input is a number', () => {
+    it('should not throw when input matches schema', () => {
+    // Arrange
       const numberSchema = z.number()
       const input = 1
-
       const numberAssertion = assertWith(numberSchema)
 
+      // Act & Assert
       expect(() => numberAssertion(input)).not.toThrow()
     })
   })

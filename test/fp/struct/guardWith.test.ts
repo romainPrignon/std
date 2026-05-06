@@ -1,43 +1,57 @@
-import { expectTypeOf } from 'vitest'
+import { describe, expect, expectTypeOf, it } from 'vitest'
 import * as z from 'zod'
-
-// test
 import { guardWith } from '../../../src/oop/struct/guardWith.js'
-
 
 describe('oop/struct/guardWith.ts', () => {
   describe('guardWith()', () => {
-    it('should be typed correctly', () => {
+    it('should return guard function type when creating guard', () => {
+    // Arrange
       const numberSchema = z.number()
+
+      // Act
       const numberGuard = guardWith(numberSchema)
 
+      // Assert
       expectTypeOf<(input: unknown) => boolean>(numberGuard)
     })
-    it('should be typed correctly when calling guard', () => {
+
+    it('should return boolean type when calling guard', () => {
+    // Arrange
       const numberSchema = z.number()
       const input = {}
-
       const numberGuard = guardWith(numberSchema)
 
-      expectTypeOf<boolean>(numberGuard(input))
+      // Act
+      const result = numberGuard(input)
+
+      // Assert
+      expectTypeOf<boolean>(result)
     })
 
-    it('should return false if input is not a number', () => {
+    it('should return false when input does not match schema', () => {
+    // Arrange
       const numberSchema = z.number()
       const input = {}
-
       const numberGuard = guardWith(numberSchema)
 
-      expect(numberGuard(input)).toEqual(false)
+      // Act
+      const result = numberGuard(input)
+
+      // Assert
+      expect(result).toEqual(false)
     })
 
-    it('should return true if input is a number', () => {
+    it('should return true when input matches schema', () => {
+    // Arrange
       const numberSchema = z.number()
       const input = 1
-
       const numberGuard = guardWith(numberSchema)
 
-      expect(numberGuard(input)).toEqual(true)
+      // Act
+      const result = numberGuard(input)
+
+      // Assert
+      expect(result).toEqual(true)
     })
   })
 })
