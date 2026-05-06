@@ -6,11 +6,13 @@ import { Err, inherit } from '../../../src/fp/errors/Error.js'
 
 describe('fp/errors/index.ts', () => {
   describe('Err()', () => {
-    const message = 'message'
-    const err = new globalThis.Error()
-    const code = 'code'
-
     it('should be typed as Err', () => {
+      // Arrange
+      const message = 'message'
+      const err = new globalThis.Error()
+      const code = 'code'
+
+      // Assert
       expectTypeOf<Error>(Err(message, { cause: err, code }))
     })
 
@@ -34,6 +36,7 @@ describe('fp/errors/index.ts', () => {
       const errorMessage = 'Test error message'
       const code = 'code'
       const context = {}
+      const err = new globalThis.Error()
 
       // Act
       const error = Err(errorMessage, { code, cause: err, context })
