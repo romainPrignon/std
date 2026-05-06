@@ -2,15 +2,23 @@
 import { Err } from '../../../src/fp/errors/index.js'
 import * as errors from '../../../src/fp/errors/index.js'
 
-
 describe('errors', () => {
-  it('should export errors namespace', () => {
-    expect(Object.entries(errors).length).toEqual(2)
+  describe('namespace exports', () => {
+    it('should export errors namespace with all functions', () => {
+      // Arrange
+      const expectedExports = 2
 
-    expect(errors.Err).toBeDefined()
-  })
+      // Act
+      const exportCount = Object.entries(errors).length
 
-  it('should export all namespace', () => {
-    expect(Err).toBeDefined()
+      // Assert
+      expect(exportCount).toEqual(expectedExports)
+      expect(errors.Err).toBeDefined()
+    })
+
+    it('should export all functions individually', () => {
+      // Arrange & Act & Assert
+      expect(Err).toBeDefined()
+    })
   })
 })

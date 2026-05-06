@@ -2,15 +2,23 @@
 import { concat } from '../../../src/fp/strings/index.js'
 import * as strings from '../../../src/fp/strings/index.js'
 
-
 describe('strings', () => {
-  it('should export strings namespace', () => {
-    expect(Object.entries(strings).length).toEqual(1)
+  describe('namespace exports', () => {
+    it('should export strings namespace with all functions', () => {
+      // Arrange
+      const expectedExports = 1
 
-    expect(strings.concat).toBeDefined()
-  })
+      // Act
+      const exportCount = Object.entries(strings).length
 
-  it('should export all namespace', () => {
-    expect(concat).toBeDefined()
+      // Assert
+      expect(exportCount).toEqual(expectedExports)
+      expect(strings.concat).toBeDefined()
+    })
+
+    it('should export all functions individually', () => {
+      // Arrange & Act & Assert
+      expect(concat).toBeDefined()
+    })
   })
 })

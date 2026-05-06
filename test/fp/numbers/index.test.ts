@@ -2,15 +2,23 @@
 import { isMultipleOf } from '../../../src/fp/numbers/index.js'
 import * as numbers from '../../../src/fp/numbers/index.js'
 
-
 describe('numbers', () => {
-  it('should export numbers namespace', () => {
-    expect(Object.entries(numbers).length).toEqual(1)
+  describe('namespace exports', () => {
+    it('should export numbers namespace with all functions', () => {
+      // Arrange
+      const expectedExports = 1
 
-    expect(numbers.isMultipleOf).toBeDefined()
-  })
+      // Act
+      const exportCount = Object.entries(numbers).length
 
-  it('should export all namespace', () => {
-    expect(isMultipleOf).toBeDefined()
+      // Assert
+      expect(exportCount).toEqual(expectedExports)
+      expect(numbers.isMultipleOf).toBeDefined()
+    })
+
+    it('should export all functions individually', () => {
+      // Arrange & Act & Assert
+      expect(isMultipleOf).toBeDefined()
+    })
   })
 })

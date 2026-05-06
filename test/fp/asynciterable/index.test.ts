@@ -2,15 +2,23 @@
 import { from } from '../../../src/fp/asynciterable/index.js'
 import * as asynciterable from '../../../src/fp/asynciterable/index.js'
 
-
 describe('asynciterable', () => {
-  it('should export asynciterable namespace', () => {
-    expect(Object.entries(asynciterable).length).toEqual(1)
+  describe('namespace exports', () => {
+    it('should export asynciterable namespace with all functions', () => {
+      // Arrange
+      const expectedExports = 1
 
-    expect(asynciterable.from).toBeDefined()
-  })
+      // Act
+      const exportCount = Object.entries(asynciterable).length
 
-  it('should export all namespace', () => {
-    expect(from).toBeDefined()
+      // Assert
+      expect(exportCount).toEqual(expectedExports)
+      expect(asynciterable.from).toBeDefined()
+    })
+
+    it('should export all functions individually', () => {
+      // Arrange & Act & Assert
+      expect(from).toBeDefined()
+    })
   })
 })

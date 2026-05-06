@@ -2,17 +2,25 @@
 import { imut, mut } from '../../../src/fp/data/index.js'
 import * as data from '../../../src/fp/data/index.js'
 
-
 describe('data', () => {
-  it('should export data namespace', () => {
-    expect(Object.entries(data).length).toEqual(2)
+  describe('namespace exports', () => {
+    it('should export data namespace with all functions', () => {
+      // Arrange
+      const expectedExports = 2
 
-    expect(data.imut).toBeDefined()
-    expect(data.mut).toBeDefined()
-  })
+      // Act
+      const exportCount = Object.entries(data).length
 
-  it('should export all namespace', () => {
-    expect(imut).toBeDefined()
-    expect(mut).toBeDefined()
+      // Assert
+      expect(exportCount).toEqual(expectedExports)
+      expect(data.imut).toBeDefined()
+      expect(data.mut).toBeDefined()
+    })
+
+    it('should export all functions individually', () => {
+      // Arrange & Act & Assert
+      expect(imut).toBeDefined()
+      expect(mut).toBeDefined()
+    })
   })
 })
