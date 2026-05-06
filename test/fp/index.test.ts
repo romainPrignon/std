@@ -5,7 +5,14 @@ import * as fp from '../../src/fp/index.js'
 
 describe('fp', () => {
   it('should export fp namespace', () => {
-    expect(Object.entries(fp).length).toEqual(10)
+    // Arrange
+    const expectedLength = 10
+
+    // Act
+    const entries = Object.entries(fp)
+
+    // Assert
+    expect(entries.length).toEqual(expectedLength)
 
     expect(fp.arrays).toBeDefined()
     expect(fp.classes).toBeDefined()
@@ -20,6 +27,7 @@ describe('fp', () => {
   })
 
   it('should export all namespace', () => {
+    // Assert
     expect(arrays).toBeDefined()
     expect(classes).toBeDefined()
     expect(dates).toBeDefined()
