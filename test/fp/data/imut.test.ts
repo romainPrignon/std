@@ -1,33 +1,53 @@
-import { expectTypeOf } from 'vitest'
-
-// test
+import { describe, expect, expectTypeOf, it } from 'vitest'
 import { mut } from '../../../src/fp/data/mut.js'
 import { imut } from '../../../src/fp/data/index.js'
 
-
-describe('fp/data/mut.ts', () => {
+describe('fp/data/imut.ts', () => {
   describe('imut()', () => {
-    it('should be typed correctly', () => {
+    it('should return readonly array type when converting mutable array', () => {
+      // Arrange
       const array = [1]
+
+      // Act
+      const result = imut(mut(array))
+
+      // Assert
+      expectTypeOf<ReadonlyArray<number>>(result)
+    })
+
+    it('should return readonly object type when converting mutable object', () => {
+      // Arrange
       const object = { a: 'b' }
       type ImmutableObject = {readonly a: string}
 
-      expectTypeOf<ReadonlyArray<number>>(imut(mut(array)))
-      expectTypeOf<ImmutableObject>(imut(mut(object)))
+      // Act
+      const result = imut(mut(object))
+
+      // Assert
+      expectTypeOf<ImmutableObject>(result)
     })
 
-    it('should return immutable value', () => {
-      const array = [1]
-      const object = { a: 'b' }
+    it('should preserve array values when converting to immutable', () => {
+      // Arrange
+      const array = [1, 2, 3]
 
-      // array.push(2) // OK
-      // object.a = 'c' // OK
+      // Act
+      const result = imut(mut(array))
 
-      const _res1 = imut(mut(array))
-      const _res2 = imut(mut(object))
+      // Assert
+      expect(result).toEqual([1, 2, 3])
+    })
 
-      // _res1.push(2) // NOK
-      // _res2.a = 'c' // NOK
+    it('should preserve object values when converting to immutable', () => {
+      // Arrange
+      const object = { a: 'b', c: 'd' }
+
+      // Act
+      const result = imut(mut(object))
+
+      // Assert
+      expect(result).toEqual({ a: 'b', c: 'd' })
     })
   })
 })
+
