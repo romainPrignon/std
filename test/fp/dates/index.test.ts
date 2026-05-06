@@ -5,7 +5,14 @@ import * as dates from '../../../src/fp/dates/index.js'
 
 describe('dates', () => {
   it('should export dates namespace', () => {
-    expect(Object.entries(dates).length).toEqual(3)
+    // Arrange
+    const expectedLength = 3
+
+    // Act
+    const entries = Object.entries(dates)
+
+    // Assert
+    expect(entries.length).toEqual(expectedLength)
 
     expect(dates.date).toBeDefined()
     expect(dates.epoch).toBeDefined()
@@ -13,6 +20,7 @@ describe('dates', () => {
   })
 
   it('should export all namespace', () => {
+    // Assert
     expect(date).toBeDefined()
     expect(epoch).toBeDefined()
     expect(now).toBeDefined()
