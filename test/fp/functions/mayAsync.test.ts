@@ -1,42 +1,57 @@
-import { expectTypeOf } from 'vitest'
+import { describe, expect, expectTypeOf, it } from 'vitest'
 import { Err } from '../../../src/fp/errors/Error.js'
-
-// test
 import { mayAsync } from '../../../src/fp/functions/mayAsync.js'
-
 
 describe('fp/functions/mayAsync.ts', () => {
   describe('mayAsync()', () => {
-    it('should be typed as R1 | Err', () => {
+    it('should return promise of number or Err when no fallback provided', () => {
+      // Act & Assert
       expectTypeOf<Promise<number | typeof Err>>(mayAsync(async () => 1))
     })
-    it('should be typed as R1 | R2', () => {
-      expectTypeOf<Promise<number | string>>(mayAsync(async () => 1, () => 'a'))
+
+    it('should return promise of union type when fallback provided', () => {
+      // Act
+      const result = mayAsync(async () => 1, () => 'a')
+
+      // Assert
+      expectTypeOf<Promise<number | string>>(result)
     })
 
-    it('should return an Err if failure callback not provided', async () => {
+    it('should return Err when async callback throws and no fallback provided', async () => {
+      // Arrange
       const err = Err('boom', { code: 'BOOM' })
 
+      // Act
       const output = await mayAsync(async () => { throw err })
 
+      // Assert
       expect(output).toEqual(err)
     })
 
-    it('should return correctly in success case', async () => {
-      const output = await mayAsync(async () => 1)
+    it('should return value when async callback succeeds', async () => {
+      // Arrange
+      const expectedValue = 1
 
-      expect(output).toEqual(1)
+      // Act
+      const output = await mayAsync(async () => expectedValue)
+
+      // Assert
+      expect(output).toEqual(expectedValue)
     })
 
-    it('should return fallback in failure case', async () => {
+    it('should return fallback when async callback throws and fallback provided', async () => {
+      // Arrange
       const err = Err('boom', { code: 'BOOM' })
+      const fallbackValue = 2
 
+      // Act
       const output = await mayAsync(
         async () => { throw err },
-        () => 2
+        () => fallbackValue
       )
 
-      expect(output).toEqual(2)
+      // Assert
+      expect(output).toEqual(fallbackValue)
     })
   })
 })
