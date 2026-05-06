@@ -5,13 +5,21 @@ import * as classes from '../../../src/fp/classes/index.js'
 
 describe('classes', () => {
   it('should export classes namespace', () => {
-    expect(Object.entries(classes).length).toEqual(2)
+    // Arrange
+    const expectedLength = 2
+
+    // Act
+    const entries = Object.entries(classes)
+
+    // Assert
+    expect(entries.length).toEqual(expectedLength)
 
     expect(classes.callable).toBeDefined()
     expect(classes.instanceOf).toBeDefined()
   })
 
   it('should export all namespace', () => {
+    // Assert
     expect(callable).toBeDefined()
     expect(instanceOf).toBeDefined()
   })
