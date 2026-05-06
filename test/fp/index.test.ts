@@ -26,7 +26,7 @@ describe('fp', () => {
       const modules = { arrays, classes, dates, errors, functions, numbers, objects, strings, data, struct }
 
       // Act & Assert
-      Object.entries(modules).forEach(([name, module]) => {
+      Object.entries(modules).forEach(([_name, module]) => {
         expect(module).toBeDefined()
       })
     })
