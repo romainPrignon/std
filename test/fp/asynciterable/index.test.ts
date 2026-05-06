@@ -5,12 +5,20 @@ import * as asynciterable from '../../../src/fp/asynciterable/index.js'
 
 describe('asynciterable', () => {
   it('should export asynciterable namespace', () => {
-    expect(Object.entries(asynciterable).length).toEqual(1)
+    // Arrange
+    const expectedLength = 1
+
+    // Act
+    const entries = Object.entries(asynciterable)
+
+    // Assert
+    expect(entries.length).toEqual(expectedLength)
 
     expect(asynciterable.from).toBeDefined()
   })
 
   it('should export all namespace', () => {
+    // Assert
     expect(from).toBeDefined()
   })
 })
