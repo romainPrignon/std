@@ -1,5 +1,3 @@
-import type { Fun, UnknownArgs, UnknownReturns } from '../../type/index.js'
-
 /**
  * Compose multiple functions into a single function.
  * Functions are composed from right to left.
