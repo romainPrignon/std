@@ -8,34 +8,51 @@ import { mayAsync } from '../../../src/fp/functions/mayAsync.js'
 describe('fp/functions/mayAsync.ts', () => {
   describe('mayAsync()', () => {
     it('should be typed as R1 | Err', () => {
-      expectTypeOf<Promise<number | typeof Err>>(mayAsync(async () => 1))
+      // Act
+      const result = mayAsync(async () => 1)
+
+      // Assert
+      expectTypeOf<Promise<number | any>>(result)
     })
+
     it('should be typed as R1 | R2', () => {
-      expectTypeOf<Promise<number | string>>(mayAsync(async () => 1, () => 'a'))
+      // Act
+      const result = mayAsync(async () => 1, () => 'a')
+
+      // Assert
+      expectTypeOf<Promise<number | string>>(result)
     })
 
     it('should return an Err if failure callback not provided', async () => {
+      // Arrange
       const err = Err('boom', { code: 'BOOM' })
 
+      // Act
       const output = await mayAsync(async () => { throw err })
 
+      // Assert
       expect(output).toEqual(err)
     })
 
     it('should return correctly in success case', async () => {
+      // Act
       const output = await mayAsync(async () => 1)
 
+      // Assert
       expect(output).toEqual(1)
     })
 
     it('should return fallback in failure case', async () => {
+      // Arrange
       const err = Err('boom', { code: 'BOOM' })
 
+      // Act
       const output = await mayAsync(
         async () => { throw err },
         () => 2
       )
 
+      // Assert
       expect(output).toEqual(2)
     })
   })
