@@ -1,9 +1,14 @@
-// test
+import { describe, expect, it } from 'vitest'
 import * as objects from '../../../src/fp/objects/index.js'
 
-
 describe('objects', () => {
-  it('should export objects namespace', () => {
-    expect(Object.entries(objects).length).toEqual(0)
+  describe('namespace', () => {
+    it('should export objects namespace with 0 entries', () => {
+      // Act
+      const entries = Object.entries(objects)
+
+      // Assert
+      expect(entries.length).toEqual(0)
+    })
   })
 })
