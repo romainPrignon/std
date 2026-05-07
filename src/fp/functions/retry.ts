@@ -21,11 +21,13 @@ export const retry = async <T>(
 
   for (let attempt = 1; attempt <= retries + 1; attempt++) {
     try {
+      // oxlint-disable-next-line no-await-in-loop
       return await fn()
     } catch (error) {
       lastError = error
       if (attempt <= retries) {
         if (onRetry) onRetry(error, attempt)
+        // oxlint-disable-next-line no-await-in-loop
         if (delayMs > 0) await delay(delayMs)
       }
     }
