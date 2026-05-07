@@ -1,29 +1,33 @@
-import { expectTypeOf } from 'vitest'
+import { describe, expect, it, expectTypeOf } from 'vitest'
 
 // test
 import { mut } from '../../../src/fp/data/mut.js'
 import { imut } from '../../../src/fp/data/index.js'
 
-
 describe('fp/data/mut.ts', () => {
   describe('mut()', () => {
     it('should be typed correctly', () => {
+      // Arrange
       const array = [1]
       const object = { a: 'b' }
 
+      // Assert
       expectTypeOf<typeof array>(mut(imut(array)))
       expectTypeOf<typeof object>(mut(imut(object)))
     })
 
-    it('should return mutable value', () => {
+    it('should return the same reference', () => {
+      // Arrange
       const array = [1]
       const object = { a: 'b' }
 
-      const _res1 = mut(imut(array))
-      const _res2 = mut(imut(object))
+      // Act
+      const res1 = mut(imut(array))
+      const res2 = mut(imut(object))
 
-      // _res1.push(2) // OK
-      // _res2.a = 'c' // OK
+      // Assert
+      expect(res1).toBe(array)
+      expect(res2).toBe(object)
     })
   })
 })
