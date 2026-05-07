@@ -1,16 +1,19 @@
-import { expectTypeOf } from 'vitest'
+import { describe, expect, it, expectTypeOf } from 'vitest'
 // test
 import { callable } from '../../../src/fp/classes/callable.js'
-
 
 describe('fp/classes/callable.ts', () => {
   describe('callable()', () => {
     it('should be typed as a factory function', () => {
+      // Arrange
       class A {}
       const a = callable(A)
+
+      // Assert
       expectTypeOf<(...args: never[]) => A>(a)
       expectTypeOf<A>(a())
 
+      // Arrange
       class B {
         x: number
         y: string
@@ -19,18 +22,24 @@ describe('fp/classes/callable.ts', () => {
           this.y = y
         }
       }
-
       const b = callable(B)
+
+      // Assert
       expectTypeOf<(...args: [number, string]) => B>(b)
       expectTypeOf<B>(b(1, 'foo'))
     })
 
     it('should return a factory function', () => {
+      // Arrange
       class A { }
       const a = callable(A)
 
-      expect(a()).toBeInstanceOf(A)
-      expect(a()).toBeInstanceOf(a)
+      // Act
+      const instance = a()
+
+      // Assert
+      expect(instance).toBeInstanceOf(A)
+      expect(instance).toBeInstanceOf(a)
     })
   })
 })
