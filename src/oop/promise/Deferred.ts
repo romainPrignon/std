@@ -4,7 +4,7 @@
 export class Deferred<T> {
   public readonly promise: Promise<T>
   public resolve!: (value: T | PromiseLike<T>) => void
-  public reject!: (reason?: any) => void
+  public reject!: (reason?: unknown) => void
 
   constructor() {
     this.promise = new Promise<T>((resolve, reject) => {

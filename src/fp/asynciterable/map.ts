@@ -6,7 +6,7 @@
  * @returns A new async iterable with the mapped elements.
  */
 export async function* map<T, U>(
-  iterable: AsyncIterable<T>,
+  iterable: AsyncIterable<T> | Iterable<T | Promise<T>>,
   fn: (value: T) => U | Promise<U>,
 ): AsyncIterable<U> {
   for await (const value of iterable) {

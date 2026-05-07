@@ -7,7 +7,7 @@
  * @returns The reduced value.
  */
 export async function reduce<T, U>(
-  iterable: AsyncIterable<T>,
+  iterable: AsyncIterable<T> | Iterable<T | Promise<T>>,
   fn: (accumulator: U, value: T) => U | Promise<U>,
   initialValue: U,
 ): Promise<U> {

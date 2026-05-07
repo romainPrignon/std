@@ -6,7 +6,7 @@
  * @returns A new async iterable with the filtered elements.
  */
 export async function* filter<T>(
-  iterable: AsyncIterable<T>,
+  iterable: AsyncIterable<T> | Iterable<T | Promise<T>>,
   predicate: (value: T) => boolean | Promise<boolean>,
 ): AsyncIterable<T> {
   for await (const value of iterable) {
