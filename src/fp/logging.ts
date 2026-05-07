@@ -1,5 +1,3 @@
-import type { UnknownArgs } from './type/index.js'
-
 /**
  * Log levels for structured logging.
  */
