@@ -9,7 +9,7 @@
 export const curry = <T extends any[], R>(fn: (...args: T) => R): any => {
   return function curried(...args: any[]): any {
     if (args.length >= fn.length) {
-      return fn(...args);
+      return fn(...(args as unknown as T));
     }
     return (...nextArgs: any[]) => curried(...args, ...nextArgs);
   };
