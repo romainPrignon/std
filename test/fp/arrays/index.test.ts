@@ -1,10 +1,14 @@
-// test
-// import {  } from '../../../src/fp/arrays'
+import { describe, expect, it } from 'vitest'
 import * as arrays from '../../../src/fp/arrays/index.js'
 
-
 describe('arrays', () => {
-  it('should export arrays namespace', () => {
-    expect(Object.entries(arrays).length).toEqual(0)
+  describe('namespace', () => {
+    it('should export arrays namespace with 0 entries', () => {
+      // Act
+      const entries = Object.entries(arrays)
+
+      // Assert
+      expect(entries.length).toEqual(0)
+    })
   })
 })
