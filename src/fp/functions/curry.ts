@@ -7,7 +7,7 @@ type Curry = <A extends UnknownArgs, R extends UnknownReturns>(fun: Fun<A, R>) =
 
 const curry: Curry = (fun) => {
   const arity = fun.length
-  return function curried(...args: any[]) {
+  return function curried(...args: any[]): any {
     if (args.length >= arity) {
       return fun(...args as any)
     }

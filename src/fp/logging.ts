@@ -61,10 +61,13 @@ const error = (logger: Logger, message: string, data?: Record<string, unknown>) 
   logger('error', message, data)
 }
 
-export {
+export type {
   LogLevel,
   LogEntry,
-  Logger,
+  Logger
+}
+
+export {
   createLogger,
   debug,
   info,
