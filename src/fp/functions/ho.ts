@@ -9,7 +9,7 @@
  * add1ThenDouble(2); // (2 + 1) * 2 = 6
  */
 export const compose = <T, U>(
-  fn1: (arg: any) => U,
+  _fn1: (arg: any) => U,
   ...fns: Array<(arg: any) => any>
 ): (arg: T) => U => {
   return (initialValue: T) =>

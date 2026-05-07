@@ -1,6 +1,6 @@
 /**
  * Curries a function, allowing it to be called with a subset of its arguments.
- * 
+ *
  * @example
  * const add = (a: number, b: number) => a + b;
  * const curriedAdd = curry(add);
@@ -17,7 +17,7 @@ export const curry = <T extends any[], R>(fn: (...args: T) => R): any => {
 
 /**
  * Memoizes a function by caching its results based on the arguments.
- * 
+ *
  * @example
  * const expensive = (n: number) => n * 2; // imagine this is slow
  * const memoized = memoize(expensive);

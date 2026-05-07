@@ -1,5 +1,5 @@
 /**
- * A Mixin is a function that takes a base class and returns a new class 
+ * A Mixin is a function that takes a base class and returns a new class
  * that extends the base class and adds new functionality.
  */
 export type Constructor<T = {}> = new (...args: any[]) => T;
@@ -8,7 +8,7 @@ export type Mixin<TBase, TExtends> = (base: Constructor<TBase>) => Constructor<T
 
 /**
  * Applies multiple mixins to a base class.
- * 
+ *
  * @example
  * const MixedClass = applyMixins(BaseClass, Mixin1, Mixin2);
  */
