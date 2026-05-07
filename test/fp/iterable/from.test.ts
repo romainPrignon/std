@@ -10,34 +10,58 @@ import { from } from '../../../src/fp/iterable/from.js'
 describe('fp/iterable/from.ts', () => {
   describe('from()', () => {
     it('should be typed correctly for simple function', async () => {
+      // Arrange
       const fun = from(() => [1])
+
+      // Assert
       expectTypeOf<() => ix.IterableX<number>>(fun)
 
+      // Act
       const res = fun()
+
+      // Assert
       expectTypeOf<ix.IterableX<number>>(res)
     })
 
     it('should be typed correctly for function returning parameter', () => {
+      // Arrange
       const fun = from((a) => [a])
+
+      // Assert
       expectTypeOf<(...args: Array<unknown>) => ix.IterableX<unknown>>(fun)
 
+      // Act
       const res = fun(1)
+
+      // Assert
       expectTypeOf<ix.IterableX<unknown>>(res)
     })
 
     it('should be typed correctly for function with typed params', () => {
+      // Arrange
       const fun = from((a: number) => [a])
+
+      // Assert
       expectTypeOf<(...args: Array<number>) => ix.IterableX<number>>(fun)
 
+      // Act
       const res = fun(1)
+
+      // Assert
       expectTypeOf<ix.IterableX<number>>(res)
     })
 
     it('should be typed correctly for function with multiple params', () => {
+      // Arrange
       const fun = from((a: number, b: string) => a + b)
+
+      // Assert
       expectTypeOf<(...args: [number, string]) => ix.IterableX<number | string>>(fun)
 
+      // Act
       const res = fun(1, 'a')
+
+      // Assert
       expectTypeOf<ix.IterableX<number | string>>(res)
     })
 
@@ -46,10 +70,11 @@ describe('fp/iterable/from.ts', () => {
       const fun = from(() => [1])
 
       // Act
-      expect(fun()).toBeInstanceOf(Iterable)
+      const result = fun()
 
       // Assert
-      fun().pipe(
+      expect(result).toBeInstanceOf(Iterable)
+      result.pipe(
         map(val => val + 1)
       ).forEach(val => expect(val).toEqual(2))
     })
@@ -62,10 +87,11 @@ describe('fp/iterable/from.ts', () => {
 
       // Act
       const fun:() => Iterable<number> = from(source)
+      const result = fun()
 
       // Assert
-      expect(fun()).toBeInstanceOf(Iterable)
-      fun().pipe(
+      expect(result).toBeInstanceOf(Iterable)
+      result.pipe(
         map(val => val + 1)
       ).forEach(val => expect(val).toEqual(2))
     })
