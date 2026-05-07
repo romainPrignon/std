@@ -8,35 +8,46 @@ import { assertWith } from '../../../src/oop/struct/assertWith.js'
 describe('oop/struct/assertWith.ts', () => {
   describe('assertWith()', () => {
     it('should be typed correctly', () => {
+      // Arrange
       const numberSchema = z.number()
+
+      // Act
       const numberAssertion = assertWith(numberSchema)
 
+      // Assert
       expectTypeOf<(input: unknown) => void>(numberAssertion)
     })
+
     it('should be typed correctly when calling assertion', () => {
+      // Arrange
       const numberSchema = z.number()
       const input = 1
 
+      // Act
       const numberAssertion = assertWith(numberSchema)
+      const result = numberAssertion(input)
 
-      expectTypeOf<void>(numberAssertion(input))
+      // Assert
+      expectTypeOf<void>(result)
     })
 
     it('should return false if input is not a number', () => {
+      // Arrange
       const numberSchema = z.number()
       const input = {}
-
       const numberAssertion = assertWith(numberSchema)
 
+      // Act & Assert
       expect(() => numberAssertion(input)).toThrow()
     })
 
     it('should return true if input is a number', () => {
+      // Arrange
       const numberSchema = z.number()
       const input = 1
-
       const numberAssertion = assertWith(numberSchema)
 
+      // Act & Assert
       expect(() => numberAssertion(input)).not.toThrow()
     })
   })
