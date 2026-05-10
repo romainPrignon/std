@@ -4,13 +4,26 @@ import * as numbers from '../../../src/fp/numbers/index.js'
 
 
 describe('numbers', () => {
-  it('should export numbers namespace', () => {
-    expect(Object.entries(numbers).length).toEqual(1)
+  describe('namespace exports', () => {
+    it('should export correct number of functions when accessing namespace', () => {
+      // Arrange
+      const expectedExportCount = 1
 
-    expect(numbers.isMultipleOf).toBeDefined()
-  })
+      // Act
+      const actualExportCount = Object.entries(numbers).length
 
-  it('should export all namespace', () => {
-    expect(isMultipleOf).toBeDefined()
+      // Assert
+      expect(actualExportCount).toEqual(expectedExportCount)
+    })
+
+    it('should export isMultipleOf function via namespace when imported', () => {
+      // Act & Assert
+      expect(numbers.isMultipleOf).toBeDefined()
+    })
+
+    it('should export isMultipleOf function via named import when imported', () => {
+      // Act & Assert
+      expect(isMultipleOf).toBeDefined()
+    })
   })
 })

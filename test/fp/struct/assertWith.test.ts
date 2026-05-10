@@ -7,37 +7,49 @@ import { assertWith } from '../../../src/oop/struct/assertWith.js'
 
 describe('oop/struct/assertWith.ts', () => {
   describe('assertWith()', () => {
-    it('should be typed correctly', () => {
-      const numberSchema = z.number()
-      const numberAssertion = assertWith(numberSchema)
+    describe('type checking', () => {
+      it('should return function with correct signature when schema is provided', () => {
+        // Arrange
+        const numberSchema = z.number()
 
-      expectTypeOf<(input: unknown) => void>(numberAssertion)
+        // Act
+        const numberAssertion = assertWith(numberSchema)
+
+        // Assert
+        expectTypeOf<(input: unknown) => void>(numberAssertion)
+      })
+
+      it('should return void when assertion function is called', () => {
+        // Arrange
+        const numberSchema = z.number()
+        const input = 1
+        const numberAssertion = assertWith(numberSchema)
+
+        // Act & Assert
+        expectTypeOf<void>(numberAssertion(input))
+      })
     })
-    it('should be typed correctly when calling assertion', () => {
-      const numberSchema = z.number()
-      const input = 1
 
-      const numberAssertion = assertWith(numberSchema)
+    describe('validation', () => {
+      it('should throw error when input does not match schema', () => {
+        // Arrange
+        const numberSchema = z.number()
+        const input = {}
+        const numberAssertion = assertWith(numberSchema)
 
-      expectTypeOf<void>(numberAssertion(input))
-    })
+        // Act & Assert
+        expect(() => numberAssertion(input)).toThrow()
+      })
 
-    it('should return false if input is not a number', () => {
-      const numberSchema = z.number()
-      const input = {}
+      it('should not throw error when input matches schema', () => {
+        // Arrange
+        const numberSchema = z.number()
+        const input = 1
+        const numberAssertion = assertWith(numberSchema)
 
-      const numberAssertion = assertWith(numberSchema)
-
-      expect(() => numberAssertion(input)).toThrow()
-    })
-
-    it('should return true if input is a number', () => {
-      const numberSchema = z.number()
-      const input = 1
-
-      const numberAssertion = assertWith(numberSchema)
-
-      expect(() => numberAssertion(input)).not.toThrow()
+        // Act & Assert
+        expect(() => numberAssertion(input)).not.toThrow()
+      })
     })
   })
 })

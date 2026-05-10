@@ -7,37 +7,55 @@ import { guardWith } from '../../../src/oop/struct/guardWith.js'
 
 describe('oop/struct/guardWith.ts', () => {
   describe('guardWith()', () => {
-    it('should be typed correctly', () => {
-      const numberSchema = z.number()
-      const numberGuard = guardWith(numberSchema)
+    describe('type checking', () => {
+      it('should return function with correct signature when schema is provided', () => {
+        // Arrange
+        const numberSchema = z.number()
 
-      expectTypeOf<(input: unknown) => boolean>(numberGuard)
+        // Act
+        const numberGuard = guardWith(numberSchema)
+
+        // Assert
+        expectTypeOf<(input: unknown) => boolean>(numberGuard)
+      })
+
+      it('should return boolean when guard function is called', () => {
+        // Arrange
+        const numberSchema = z.number()
+        const input = {}
+        const numberGuard = guardWith(numberSchema)
+
+        // Act & Assert
+        expectTypeOf<boolean>(numberGuard(input))
+      })
     })
-    it('should be typed correctly when calling guard', () => {
-      const numberSchema = z.number()
-      const input = {}
 
-      const numberGuard = guardWith(numberSchema)
+    describe('validation', () => {
+      it('should return false when input does not match schema', () => {
+        // Arrange
+        const numberSchema = z.number()
+        const input = {}
+        const numberGuard = guardWith(numberSchema)
 
-      expectTypeOf<boolean>(numberGuard(input))
-    })
+        // Act
+        const result = numberGuard(input)
 
-    it('should return false if input is not a number', () => {
-      const numberSchema = z.number()
-      const input = {}
+        // Assert
+        expect(result).toEqual(false)
+      })
 
-      const numberGuard = guardWith(numberSchema)
+      it('should return true when input matches schema', () => {
+        // Arrange
+        const numberSchema = z.number()
+        const input = 1
+        const numberGuard = guardWith(numberSchema)
 
-      expect(numberGuard(input)).toEqual(false)
-    })
+        // Act
+        const result = numberGuard(input)
 
-    it('should return true if input is a number', () => {
-      const numberSchema = z.number()
-      const input = 1
-
-      const numberGuard = guardWith(numberSchema)
-
-      expect(numberGuard(input)).toEqual(true)
+        // Assert
+        expect(result).toEqual(true)
+      })
     })
   })
 })

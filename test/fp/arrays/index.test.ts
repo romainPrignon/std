@@ -4,7 +4,16 @@ import * as arrays from '../../../src/fp/arrays/index.js'
 
 
 describe('arrays', () => {
-  it('should export arrays namespace', () => {
-    expect(Object.entries(arrays).length).toEqual(0)
+  describe('namespace exports', () => {
+    it('should export empty namespace when no functions are defined', () => {
+      // Arrange
+      const expectedExportCount = 0
+
+      // Act
+      const actualExportCount = Object.entries(arrays).length
+
+      // Assert
+      expect(actualExportCount).toEqual(expectedExportCount)
+    })
   })
 })

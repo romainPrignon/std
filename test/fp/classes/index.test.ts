@@ -4,15 +4,36 @@ import * as classes from '../../../src/fp/classes/index.js'
 
 
 describe('classes', () => {
-  it('should export classes namespace', () => {
-    expect(Object.entries(classes).length).toEqual(2)
+  describe('namespace exports', () => {
+    it('should export correct number of functions when accessing namespace', () => {
+      // Arrange
+      const expectedExportCount = 2
 
-    expect(classes.callable).toBeDefined()
-    expect(classes.instanceOf).toBeDefined()
-  })
+      // Act
+      const actualExportCount = Object.entries(classes).length
 
-  it('should export all namespace', () => {
-    expect(callable).toBeDefined()
-    expect(instanceOf).toBeDefined()
+      // Assert
+      expect(actualExportCount).toEqual(expectedExportCount)
+    })
+
+    it('should export all functions via namespace when imported', () => {
+      // Arrange
+      const expectedFunctions = ['callable', 'instanceOf']
+
+      // Act & Assert
+      expectedFunctions.forEach(fnName => {
+        expect((classes as any)[fnName]).toBeDefined()
+      })
+    })
+
+    it('should export all functions via named imports when imported', () => {
+      // Arrange
+      const functions = { callable, instanceOf }
+
+      // Act & Assert
+      Object.values(functions).forEach(fn => {
+        expect(fn).toBeDefined()
+      })
+    })
   })
 })

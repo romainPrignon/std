@@ -4,13 +4,26 @@ import * as errors from '../../../src/fp/errors/index.js'
 
 
 describe('errors', () => {
-  it('should export errors namespace', () => {
-    expect(Object.entries(errors).length).toEqual(2)
+  describe('namespace exports', () => {
+    it('should export correct number of exports when accessing namespace', () => {
+      // Arrange
+      const expectedExportCount = 2
 
-    expect(errors.Err).toBeDefined()
-  })
+      // Act
+      const actualExportCount = Object.entries(errors).length
 
-  it('should export all namespace', () => {
-    expect(Err).toBeDefined()
+      // Assert
+      expect(actualExportCount).toEqual(expectedExportCount)
+    })
+
+    it('should export Err class via namespace when imported', () => {
+      // Act & Assert
+      expect(errors.Err).toBeDefined()
+    })
+
+    it('should export Err class via named import when imported', () => {
+      // Act & Assert
+      expect(Err).toBeDefined()
+    })
   })
 })
