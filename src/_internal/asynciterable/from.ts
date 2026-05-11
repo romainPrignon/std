@@ -2,10 +2,10 @@ import type { UnknownArgs, Fun } from '../../type/index.js'
 import * as ix from 'ix/asynciterable'
 
 type AnyContainer<T> =
-  | T[]
+  | Array<T>
   | Iterable<T>
   | AsyncIterable<T>
-  | Promise<T[]>
+  | Promise<Array<T>>
   | Promise<Iterable<T>>
   | Promise<AsyncIterable<T>>
 

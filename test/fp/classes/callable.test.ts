@@ -8,7 +8,7 @@ describe('fp/classes/callable.ts', () => {
     it('should be typed as a factory function', () => {
       class A {}
       const a = callable(A)
-      expectTypeOf<(...args: never[]) => A>(a)
+      expectTypeOf<(...args: Array<never>) => A>(a)
       expectTypeOf<A>(a())
 
       class B {

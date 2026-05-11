@@ -5,9 +5,10 @@ import promise from 'eslint-plugin-promise'
 import { defineConfig } from 'eslint/config'
 import globals from 'globals'
 import tseslint from 'typescript-eslint'
+import oxlint from 'eslint-plugin-oxlint'
 
 export default defineConfig([
-  ...tseslint.configs.recommendedTypeChecked, // enable typescript syntax
+  ...tseslint.configs.recommended, // enable typescript syntax
   {
     files: ['**/*.{js,ts}']
   },
@@ -75,5 +76,6 @@ export default defineConfig([
       // project specific
       'no-new-wrappers': "off"
     }
-  }
+  },
+  oxlint.buildFromOxlintConfigFile('./oxlint.config.js')
 ])

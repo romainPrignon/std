@@ -1,74 +1,68 @@
+import { defineConfig } from 'oxlint'
 import eslint from '@eslint/js'
-import vitest from '@vitest/eslint-plugin'
-import n from 'eslint-plugin-n'
-import promise from 'eslint-plugin-promise'
-import { defineConfig } from 'eslint/config'
-import globals from 'globals'
 import tseslint from 'typescript-eslint'
-import oxlint from 'eslint-plugin-oxlint'
+import promise from 'eslint-plugin-promise'
 
-export default defineConfig([
-  ...tseslint.configs.recommended, // enable typescript syntax
-  {
-    files: ['**/*.{js,ts}']
+export default defineConfig({
+  ignores: [
+    'src/script/'
+  ],
+  env: {
+    builtin: true,
+    es2023: true,
+    jest: true,
+    node: true,
   },
-  {
-    ignores: ['src/script/']
-  },
-  {
-    plugins: { promise, n, vitest }
-  },
-  {
-    languageOptions: {
-      ecmaVersion: 2023,
-      sourceType: 'module'
-    }
-  },
-  {
-    languageOptions: {
-      globals: {
-        ...globals.node,
-        ...globals.es2023,
-        ...globals.jest,
-      }
-    }
-  },
-  {
-    rules: {
-      ...eslint.configs.recommended.rules,
-      ...tseslint.configs.eslintRecommended.rules, // disables rules from eslint:recommended which are already handled by ts
-      ...tseslint.configs.recommended.rules,
-      ...promise.configs.recommended.rules,
-      ...n.configs.recommended.rules,
-      // errors rules
-      'vitest/no-focused-tests': 'error',
-      '@typescript-eslint/no-unused-vars': [
-        'error',
-        {
-          ignoreRestSiblings: true,
-          argsIgnorePattern: '^_',
-          varsIgnorePattern: '^_',
-          caughtErrorsIgnorePattern: '^_'
-        }
-      ],
-      '@typescript-eslint/no-unused-expressions': ['error', { allowShortCircuit: true }],
-      'promise/valid-params': 'error',
-      'promise/no-multiple-resolved': 'error',
-      // off rules
-      'no-unused-vars': 'off', // override by typescript
-      'no-multiple-empty-lines': 'off', // give us some space
-      'no-use-before-define': 'off', // ts code is compiled to js code. order does not matter
-      camelcase: 'off', // not everything should be in camelcase
-      '@typescript-eslint/no-explicit-any': 'off', // we will someday
-      'n/no-extraneous-import': 'off', // handle by ts and vscode
-      'n/no-unpublished-import': 'off', // handle by ts and vscode
-      'n/no-missing-import': 'off', // handle by ts and vscode
-      // project specific
-      'no-new-wrappers': "off"
-    }
-  },
-  // should be the last one
-  ...oxlint.configs['flat/eslint'],
-  ...oxlint.configs['flat/promise'],
-  ...oxlint.configs['flat/typescript'],
-])
+  plugins: ['eslint', 'oxc', 'promise', 'typescript'],
+  extends: [
+    'eslint:recommended',
+    'plugin:oxc/recommended',
+    'plugin:promise/recommended',
+    'plugin:@typescript-eslint/recommended'
+  ],
+  rules: {
+    ...eslint.configs.recommended.rules,
+    ...tseslint.configs.recommended[0].rules,
+    ...promise.configs.recommended.rules,
+    'typescript/await-thenable': 'error',
+    'typescript/no-array-delete': 'error',
+    'typescript/no-base-to-string': 'error',
+    'typescript/no-confusing-void-expression': 'off',
+    'typescript/no-duplicate-type-constituents': 'error',
+    'typescript/no-floating-promises': 'error',
+    'typescript/no-for-in-array': 'error',
+    'typescript/no-implied-eval': 'error',
+    'typescript/no-meaningless-void-operator': 'error',
+    'typescript/no-misused-promises': 'error',
+    'typescript/no-misused-spread': 'error',
+    'typescript/no-mixed-enums': 'error',
+    'typescript/no-redundant-type-constituents': 'error',
+    'typescript/no-unnecessary-boolean-literal-compare': 'error',
+    'typescript/no-unnecessary-template-expression': 'error',
+    'typescript/no-unnecessary-type-arguments': 'error',
+    'typescript/no-unnecessary-type-assertion': 'error',
+    'typescript/non-nullable-type-assertion-style': 'error',
+    'typescript/only-throw-error': 'error',
+    'typescript/prefer-promise-reject-errors': 'error',
+    'typescript/prefer-reduce-type-parameter': 'error',
+    'typescript/prefer-return-this-type': 'error',
+    'typescript/related-getter-setter-pairs': 'error',
+    'typescript/require-array-sort-compare': 'error',
+    'typescript/restrict-plus-operands': 'error',
+    'typescript/restrict-template-expressions': 'error',
+    'typescript/return-await': 'error',
+    'typescript/switch-exhaustiveness-check': 'error',
+    'typescript/unbound-method': 'error',
+    'typescript/require-await': 'off',
+    'typescript/use-unknown-in-catch-callback-variable': 'off',
+    'typescript/no-unsafe-argument': 'off',
+    'typescript/no-unsafe-assignment': 'off',
+    'typescript/no-unsafe-call': 'off',
+    'typescript/no-unsafe-enum-comparison': 'off',
+    'typescript/no-unsafe-member-access': 'off',
+    'typescript/no-unsafe-return': 'off',
+    'typescript/no-unsafe-type-assertion': 'off',
+    'typescript/no-unsafe-unary-minus': 'off',
+    'typescript/promise-function-async': 'off',
+  }
+})
