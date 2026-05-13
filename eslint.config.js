@@ -8,7 +8,8 @@ import tseslint from 'typescript-eslint'
 import oxlint from 'eslint-plugin-oxlint'
 
 export default defineConfig([
-  ...tseslint.configs.recommended, // enable typescript syntax
+  ...tseslint.configs.recommended,
+  // ...tseslint.configs.recommendedTypeChecked, // enable typescript syntax
   {
     files: ['**/*.{js,ts}']
   },
@@ -77,5 +78,5 @@ export default defineConfig([
       'no-new-wrappers': "off"
     }
   },
-  oxlint.buildFromOxlintConfigFile('./oxlint.config.js')
+  ...oxlint.buildFromOxlintConfigFile('./oxlint.config.js') // disable eslint rules that are already checked by oxlint
 ])

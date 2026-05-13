@@ -12,6 +12,11 @@ export default defineConfig({
     es2023: true,
     jest: true,
     node: true,
+    'shared-node-browser': true
+  },
+  categories: {
+    correctness: 'error',
+    perf: 'error'
   },
   plugins: ['eslint', 'oxc', 'promise', 'typescript'],
   extends: [
@@ -21,9 +26,6 @@ export default defineConfig({
     'plugin:@typescript-eslint/recommended'
   ],
   rules: {
-    ...eslint.configs.recommended.rules,
-    ...tseslint.configs.recommended[0].rules,
-    ...promise.configs.recommended.rules,
     'typescript/await-thenable': 'error',
     'typescript/no-array-delete': 'error',
     'typescript/no-base-to-string': 'error',
