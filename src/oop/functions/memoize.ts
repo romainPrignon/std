@@ -1,0 +1,1 @@
+export * from '../../_internal/functions/memoize.js'
