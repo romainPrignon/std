@@ -1,6 +1,5 @@
-ignoredBuiltDependencies:
-  - core-js
-  - unrs-resolver
-
-onlyBuiltDependencies:
-  - husky
+allowBuilds:
+  core-js: true
+  esbuild: true
+  husky: true
+  unrs-resolver: false

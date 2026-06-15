@@ -92,5 +92,24 @@ describe('oop/error/index.ts', () => {
       expect(error.cause).toBeUndefined()
       expect(error.context).toBeUndefined()
     })
+
+    it('it should create a new error class that inherits from Err with custom code', () => {
+      // Arrange
+      const errorMessage = 'Test error message'
+      const ErrorName = 'ErrorName'
+      const errorCode = 'errorCode'
+      const CustomError = Err.inherit(ErrorName)
+
+      // Act
+      const error = new CustomError(errorMessage, { code: errorCode })
+
+      // Assert
+      expect(error).toBeInstanceOf(CustomError)
+      expect(error).toBeInstanceOf(Err)
+      expect(error.message).toBe(errorMessage)
+      expect(error.code).toBe(errorCode)
+      expect(error.cause).toBeUndefined()
+      expect(error.context).toBeUndefined()
+    })
   })
 })
