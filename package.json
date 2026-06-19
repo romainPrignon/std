@@ -32,7 +32,7 @@
     "dev": "concurrently -c auto 'npm:check -- --watch --preserveWatchOutput' 'npm:test -- --watch'",
     "check": "tsgo --noEmit",
     "check:cov": "type-coverage --detail --strict --ignore-catch --at-least 100",
-    "build": "rm -rf dist/ && tsc -p tsconfig.build.json",
+    "build": "rm -rf dist/ && tsgo -p tsconfig.build.json",
     "lint": "oxlint --type-aware src/ test/ && eslint -c eslint.oxlint.config.js --cache src/ test/",
     "fmt": "oxlint --fix src/ test/ && eslint -c eslint.oxlint.config.js --fix src/ test/",
     "test": "vitest --typecheck run",
@@ -81,7 +81,6 @@
     "pinst": "3",
     "tsdown": "^0.22.2",
     "type-coverage": "^2.29.7",
-    "typescript": "^6.0.0",
     "typescript-eslint": "^8.61.1",
     "vitest": "^4.1.8"
   }
