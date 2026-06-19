@@ -7,7 +7,7 @@ import globals from 'globals'
 import tseslint from 'typescript-eslint'
 
 export default defineConfig([
-  ...tseslint.configs.recommendedTypeChecked, // enable typescript syntax
+  ...tseslint.configs.recommended, // enable typescript syntax
   {
     files: ['**/*.{js,ts}']
   },
@@ -19,7 +19,7 @@ export default defineConfig([
   },
   {
     languageOptions: {
-      ecmaVersion: 2023, // node 22
+      ecmaVersion: 2024,
       sourceType: 'module'
     }
   },
@@ -75,5 +75,5 @@ export default defineConfig([
       // project specific
       'no-new-wrappers': "off"
     }
-  }
+  },
 ])

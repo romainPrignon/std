@@ -2,10 +2,10 @@ import { expectTypeOf } from 'vitest'
 import * as z from 'zod'
 
 // test
-import { assertWith } from '../../../src/oop/struct/assertWith.js'
+import { assertWith } from '../../../src/fp/struct/assertWith.js'
 
 
-describe('oop/struct/assertWith.ts', () => {
+describe('fp/struct/assertWith.ts', () => {
   describe('assertWith()', () => {
     it('should be typed correctly', () => {
       const numberSchema = z.number()
@@ -28,7 +28,16 @@ describe('oop/struct/assertWith.ts', () => {
 
       const numberAssertion = assertWith(numberSchema)
 
-      expect(() => numberAssertion(input)).toThrow()
+      expect(() => numberAssertion(input)).toThrowErrorMatchingInlineSnapshot(`
+        [ZodError: [
+          {
+            "expected": "number",
+            "code": "invalid_type",
+            "path": [],
+            "message": "Invalid input: expected number, received object"
+          }
+        ]]
+      `)
     })
 
     it('should return true if input is a number', () => {

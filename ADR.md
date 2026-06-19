@@ -1,7 +1,7 @@
 - tsconfig should keep options that are used in the IDE as well
 - target should be set once and for all (eslint, ts, tsdown,...) with packagejson.engines.node field
 - use both eslint and oxlint to maximize rule landscape.
-  - `oxlint.config.js` contains same rules as eslint minus rules handle by oxlint
-  - `oxlintrc.json` contains only working oxlint rules right now
-  - ide still use eslint
+  - `oxlint.config.js` is the native oxlint configuration.
+  - `eslint.config.js` is the eslint config used by IDE
+  - `eslint.oxlint.config.js` contains same rules as eslint minus rules handle by oxlint
   - git hook and ci use both

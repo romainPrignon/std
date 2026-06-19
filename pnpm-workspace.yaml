@@ -3,3 +3,8 @@ allowBuilds:
   esbuild: true
   husky: true
   unrs-resolver: false
+
+strictPeerDependencies: true
+
+overrides:
+  "type-coverage-core>typescript": "^6.0.0"

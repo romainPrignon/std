@@ -28,7 +28,16 @@ describe('oop/struct/assertWith.ts', () => {
 
       const numberAssertion = assertWith(numberSchema)
 
-      expect(() => numberAssertion(input)).toThrow()
+      expect(() => numberAssertion(input)).toThrowErrorMatchingInlineSnapshot(`
+        [ZodError: [
+          {
+            "expected": "number",
+            "code": "invalid_type",
+            "path": [],
+            "message": "Invalid input: expected number, received object"
+          }
+        ]]
+      `)
     })
 
     it('should return true if input is a number', () => {
