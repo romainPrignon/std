@@ -14,7 +14,7 @@ describe('fp/errors/index.ts', () => {
       expectTypeOf<Error>(Err(message, { cause: err, code }))
     })
 
-    it('it should create an instance of Err', () => {
+    it('should create an instance of Err', () => {
       // Arrange
       const errorMessage = 'Test error message'
 
@@ -29,7 +29,7 @@ describe('fp/errors/index.ts', () => {
       expect(error.context).toBeUndefined()
     })
 
-    it('it should create an instance of Err with code, cause, context', () => {
+    it('should create an instance of Err with code, cause, context', () => {
       // Arrange
       const errorMessage = 'Test error message'
       const code = 'code'
@@ -46,7 +46,7 @@ describe('fp/errors/index.ts', () => {
       expect(error.context).toBe(context)
     })
 
-    it('it should capture the stack trace', () => {
+    it('should capture the stack trace', () => {
       // Arrange
       const errorMessage = 'Test error message'
 
@@ -57,7 +57,7 @@ describe('fp/errors/index.ts', () => {
       expect(error.stack).toBeDefined()
     })
 
-    it('it should create a new error class that inherits from Err', () => {
+    it('should create a new error class that inherits from Err', () => {
       // Arrange
       const errorMessage = 'Test error message'
       const errorCode = 'CustomError'
@@ -75,7 +75,7 @@ describe('fp/errors/index.ts', () => {
       expect(error.stack).toBeDefined()
     })
 
-    it('it should create a new error class that inherits from Err with custom code', () => {
+    it('should create a new error class that inherits from Err with custom code', () => {
       // Arrange
       const errorMessage = 'Test error message'
       const errorCode = 'CustomError'
@@ -94,7 +94,7 @@ describe('fp/errors/index.ts', () => {
       expect(error.stack).toBeDefined()
     })
 
-    it('it should create a recursive error class that inherits from Err', () => {
+    it('should create a recursive error class that inherits from Err', () => {
       // Arrange
       const errorMessage = 'Test error message'
       const errorCode1 = 'CustomError1'
