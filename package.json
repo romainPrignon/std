@@ -61,15 +61,15 @@
   },
   "devDependencies": {
     "@arethetypeswrong/cli": "^0.18.3",
-    "@eslint/js": "^9.39.1",
+    "@eslint/js": "^10.0.1",
     "@types/lodash": "^4.17.24",
     "@types/node": "^22",
     "@typescript/native-preview": "7.0.0-dev.20260619.1",
     "@vitest/coverage-v8": "^4.1.8",
     "@vitest/eslint-plugin": "^1.6.20",
     "concurrently": "^9.2.1",
-    "eslint": "^9.39.1",
-    "eslint-plugin-n": "^17.24.0",
+    "eslint": "^10.5.0",
+    "eslint-plugin-n": "^18.1.0",
     "eslint-plugin-oxlint": "^1.69.0",
     "eslint-plugin-promise": "^7.3.0",
     "gitmoji-changelog": "^2.3.0",
@@ -82,7 +82,7 @@
     "tsdown": "^0.22.2",
     "type-coverage": "^2.29.7",
     "typescript": "^6.0.0",
-    "typescript-eslint": "^8.61.0",
+    "typescript-eslint": "^8.61.1",
     "vitest": "^4.1.8"
   }
 }
